@@ -1,0 +1,12 @@
+@import "../../styles/common";
+
+.Card {
+  border-radius: 1rem;
+  padding: 2rem;
+
+  @include dark;
+
+  @include theme("light") {
+    @include light;
+  }
+}

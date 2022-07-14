@@ -1,0 +1,13 @@
+.Story {
+  div {
+    padding: 40px;
+
+    &:first-of-type {
+      background-color: paleturquoise;
+    }
+
+    &:last-of-type {
+      background-color: palegoldenrod;
+    }
+  }
+}

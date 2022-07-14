@@ -1,0 +1,8 @@
+@use "../Button/Button.module";
+
+.LinkButton {
+  @extend %button;
+
+  gap: 10px;
+  text-decoration: none;
+}

@@ -1,0 +1,42 @@
+@import "./common";
+
+:root {
+  --line-height: 1.8;
+  --text-height: calc(var(--text-size) * var(--line-height));
+  --text-size: 1.6rem;
+}
+
+html {
+  font-size: 10px;
+}
+
+* {
+  scrollbar-color: hsl(0deg 0% 100% / 30%) hsl(0deg 0% 100% / 10%);
+  scrollbar-width: thin; // width is ~8-10px
+
+  &::-webkit-scrollbar {
+    background-color: hsl(0deg 0% 100% / 10%);
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: hsl(0deg 0% 100% / 30%);
+  }
+}
+
+body {
+  color: var(--white);
+}
+
+a {
+  color: var(--cyan);
+  font-size: var(--text-size);
+
+  &:visited {
+    color: var(--secondary);
+  }
+
+  &:focus-visible {
+    @include focus-visible;
+  }
+}

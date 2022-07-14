@@ -1,0 +1,14 @@
+# Created by .ignore support plugin (hsz.mobi)
+
+bin
+build
+coverage
+lib
+node_modules
+obj
+playwright-report
+storybook-static
+tools
+wwwroot
+
+versionBumper.js

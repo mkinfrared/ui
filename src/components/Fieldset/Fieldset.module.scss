@@ -1,0 +1,20 @@
+.Fieldset {
+  border: 2px solid var(--secondary);
+  border-radius: 1rem;
+  padding: 2rem;
+
+  &:disabled {
+    border-color: var(--grey);
+
+    .legend {
+      color: var(--grey);
+    }
+  }
+
+  .legend {
+    color: var(--secondary);
+    font-size: 1.8rem;
+    padding: 0 1rem;
+    text-transform: uppercase;
+  }
+}

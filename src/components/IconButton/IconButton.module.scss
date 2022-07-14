@@ -1,0 +1,42 @@
+@import "../../styles/base/baseButton";
+
+.IconButton {
+  @extend %button-base;
+
+  align-items: center;
+  border-radius: 50%;
+  display: inline-flex;
+  justify-content: center;
+  min-width: auto;
+  padding: 1.1rem;
+  position: relative;
+
+  &.outlined {
+    overflow: visible;
+    padding: calc(1.1rem - 2px);
+
+    .spinner {
+      height: calc(100% + 4px);
+      inset: -2px;
+    }
+  }
+
+  &.loading {
+    .spinner {
+      opacity: 1;
+    }
+  }
+
+  svg {
+    aspect-ratio: 1/1;
+    fill: currentcolor;
+    height: var(--text-size);
+  }
+
+  .spinner {
+    height: 100%;
+    inset: 0;
+    opacity: 0;
+    position: absolute;
+  }
+}

@@ -1,0 +1,149 @@
+@import "../../styles/common";
+
+.TextField {
+  display: block;
+  width: 100%;
+
+  &.hasError {
+    .input {
+      border-color: var(--error);
+
+      // todo replace with relative colors
+      // when browsers start to support it
+      box-shadow: 0 0 0.5rem 0 var(--error);
+    }
+  }
+
+  &.disabled {
+    .label {
+      color: var(--grey);
+      cursor: default;
+    }
+
+    .input {
+      border-color: var(--grey);
+    }
+
+    .input input {
+      color: var(--grey);
+    }
+  }
+
+  &.hasSuffix {
+    .input {
+      padding-right: 3rem;
+    }
+  }
+
+  &.hasPrefix {
+    .input {
+      padding-left: 3rem;
+    }
+  }
+
+  .label {
+    cursor: pointer;
+    margin-bottom: 1rem;
+    text-transform: capitalize;
+  }
+
+  .input {
+    border: 1px solid transparent;
+    border-radius: 1rem;
+    font-family: Roboto, sans-serif;
+    font-size: var(--text-size);
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.8;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+
+    :where(&) {
+      @include dark;
+
+      @include theme("light") {
+        @include light;
+      }
+    }
+
+    input {
+      background-color: transparent;
+      border: none;
+      caret-color: var(--secondary);
+      color: inherit;
+      font-size: 100%;
+      height: 100%;
+      line-height: 1;
+      padding: 1.5rem 2rem;
+      width: 100%;
+
+      &:-webkit-autofill,
+      &:-webkit-autofill:active,
+      &:-webkit-autofill:hover,
+      &:-webkit-autofill:focus {
+        background-color: var(--background-color);
+        border: none;
+        box-shadow: 0 0 0 1000px var(--background-color) inset;
+        caret-color: var(--secondary);
+        font-size: 100%;
+        -webkit-text-fill-color: var(--white);
+
+        // it's not possible to use transparent background color
+        // to override chrome autofill styles, so background needs
+        // to be set to a certain color, to keep the initial background
+        // transparent the transition delay can be used
+        transition: background-color 7200s ease-in-out 0s; // 2 hr delay
+      }
+
+      &::selection {
+        background-color: var(--cyan);
+        color: var(--white);
+      }
+
+      &:focus-visible {
+        outline: none;
+      }
+    }
+
+    .prefix,
+    .suffix {
+      aspect-ratio: 1/1;
+      height: calc(var(--text-size) * 1.5);
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: calc(var(--text-size) * 1.5);
+
+      svg {
+        fill: currentcolor;
+        height: 100%;
+        width: 100%;
+      }
+    }
+
+    .prefix {
+      left: 1rem;
+    }
+
+    .suffix {
+      cursor: pointer;
+      right: 1rem;
+    }
+  }
+
+  .error {
+    color: var(--error);
+    font-size: 1.4rem;
+    height: 2.5rem;
+    margin-top: 0.5rem;
+    overflow: hidden;
+    padding: 0;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%;
+  }
+}
+
+label {
+}

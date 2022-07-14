@@ -1,0 +1,45 @@
+@import "open-props/animations";
+@import "open-props/easings";
+@import "../../styles/common";
+
+.Modal {
+  border-radius: 0.8rem;
+  color: var(--white);
+  padding: 2rem;
+  max-width: 80rem;
+
+  &[open] {
+    animation: modalAnimation alternate;
+    animation-timing-function: var(--ease-elastic-4);
+    animation-duration: 0.3s;
+  }
+
+  &::backdrop {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+
+  @include dark;
+
+  @include theme("light") {
+    @include light;
+    color: var(--black);
+  }
+
+
+  .close {
+    float: inline-end;
+    float: right;
+    margin-top: -1rem;
+    margin-right: -1rem;
+  }
+}
+
+@keyframes modalAnimation {
+  0% {
+    transform: translateY(100%);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}

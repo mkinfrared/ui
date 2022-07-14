@@ -1,0 +1,17 @@
+.Loading {
+  align-items: center;
+  background-color: rgb(255 255 255 / 50%);
+  display: flex;
+  justify-content: center;
+  left: 0;
+  max-height: 100vh;
+  position: fixed;
+  top: 0;
+  width: 100%;
+
+  .spinner {
+    aspect-ratio: initial;
+    height: 50px;
+    width: 50px;
+  }
+}

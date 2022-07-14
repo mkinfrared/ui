@@ -1,0 +1,34 @@
+.LazyImage {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  
+  img {
+    width: 0;
+    height: 0;
+    object-fit: contain;
+    opacity: 0;
+    
+    &.loaded {
+      width: 100%;
+      height: 100%;
+      opacity: 1;
+      transition: opacity 150ms ease-out;
+    }
+    
+    &.error {
+      display: none;
+    }
+  }
+  
+  .skeleton {
+    --stop-hue: 290;
+    // TODO GET RID OF POSITION ABSOLUTE
+    // IT CAUSES ANIMATION ISSUES IN SAFARI 🤷‍
+    //position: absolute;
+    width: 100%;
+    height: 100%;
+    inset: 0;
+  }
+}

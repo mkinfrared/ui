@@ -1,0 +1,93 @@
+@use "../common" as c;
+
+@mixin button-border-radius {
+  --border-radius: 4rem;
+}
+
+%button-base {
+  @include button-border-radius;
+
+  --background: var(--button-background, var(--night-call));
+  --border-color: var(--button-border-color, var(--primary));
+  --color: var(--button-color);
+  --spinner-color: var(--button-spinner-color, var(--white));
+
+  align-items: center;
+  border: none;
+  border-radius: var(--border-radius);
+  color: var(--color);
+  cursor: pointer;
+  display: inline-flex;
+  font-size: var(--text-size);
+  font-weight: 600;
+  justify-content: center;
+  line-height: var(--line-height);
+  overflow: hidden;
+  padding: 0.5rem 2rem;
+  position: relative;
+  -webkit-tap-highlight-color: transparent; // removes blue highlight in mobile chrome
+  white-space: nowrap;
+
+  &.contained {
+    background: var(--background);
+    color: var(--white);
+
+    &.secondary {
+      background: var(--secondary-gradient);
+    }
+
+    &.success {
+      background: var(--success-gradient);
+    }
+
+    &.error {
+      background: var(--sugar-lollipop);
+    }
+  }
+
+  &.outlined {
+    background-color: transparent;
+    border: 2px solid var(--border-color);
+    color: var(--border-color);
+    padding: calc(0.5rem - 2px) calc(2rem - 2px);
+
+    &.secondary {
+      border-color: var(--secondary);
+      color: var(--secondary);
+    }
+
+    &.success {
+      border-color: var(--success);
+      color: var(--success);
+    }
+
+    &.error {
+      border-color: var(--error);
+      color: var(--error);
+    }
+  }
+
+  &:hover {
+    filter: brightness(1.1);
+  }
+
+  &:active {
+    filter: brightness(0.8);
+    transform: scale(0.97);
+  }
+
+  &:disabled {
+    @include c.disabled;
+
+    cursor: auto;
+  }
+
+  &:focus-visible {
+    @include c.focus-visible;
+  }
+
+  &,
+  > * {
+    transition: all 100ms ease-in, filter 150ms ease-in;
+  }
+}

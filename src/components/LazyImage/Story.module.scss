@@ -1,0 +1,13 @@
+.Story {
+  .def {
+    width: 150px;
+    height: 200px;
+  }
+  
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(2, 300px);
+    grid-auto-rows: 200px;
+    gap: 2rem;
+  }
+}

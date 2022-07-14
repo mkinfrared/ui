@@ -1,0 +1,92 @@
+@import "../../styles/common";
+
+.Toggle {
+  --color: var(--toggle-text-color, var(--white));
+  --padding: 0.2rem;
+  --size: var(--text-height);
+
+  align-items: center;
+  display: flex;
+  width: fit-content;
+
+  .container {
+    align-items: center;
+    border-radius: 0.4rem;
+    display: flex;
+  }
+
+  &.error {
+    .switch {
+      background: var(--error-gradient);
+    }
+
+    .text {
+      color: var(--error);
+    }
+  }
+
+  .switch {
+    align-items: center;
+    background: var(--secondary-gradient);
+    border-radius: 5rem;
+    display: flex;
+    height: var(--size);
+    padding: var(--padding);
+    transition: all 0.25s ease-in-out;
+    width: calc(var(--size) * 2 - var(--padding) * 2);
+
+    .ball {
+      aspect-ratio: 1/1;
+      background-color: var(--white);
+      border-radius: 50%;
+      box-shadow: 0 0 0.5rem rgb(0 0 0 / 30%);
+      display: block;
+      height: 100%;
+      transition: all 0.25s;
+    }
+  }
+
+  .text {
+    margin-left: 1rem;
+  }
+
+  .input {
+    height: 0;
+    margin: 0;
+    opacity: 0;
+    position: absolute;
+    width: 0;
+    z-index: -1;
+
+    &:checked + .container .switch {
+      background: var(--primary-gradient);
+    }
+
+    &:checked + .container .switch .ball {
+      transform: translateX(100%);
+    }
+
+    &:focus ~ .container {
+      border-radius: 0.4rem;
+    }
+  }
+
+  input:focus-visible ~ .container {
+    @include focus-visible;
+  }
+
+  &.readOnly {
+    pointer-events: none;
+  }
+
+  &.readOnly .input,
+  .input:disabled {
+    ~ .container {
+      @include disabled;
+
+      .text {
+        color: var(--grey);
+      }
+    }
+  }
+}

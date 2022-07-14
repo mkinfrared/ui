@@ -1,0 +1,107 @@
+/* stylelint-disable */
+:root {
+  /**
+  * @tokens Colors
+  * @presenter Color
+  */
+  --black: hsl(0deg, 0%, 0%);
+  --black-light: hsl(0deg, 0%, 10%);
+  --black-dark: hsl(0deg, 0%, 0%);
+  --blue: hsl(201.9101123596deg, 100%, 34.9019607843%);
+  --blue-light: hsl(201.9101123596deg, 100%, 44.9019607843%);
+  --blue-dark: hsl(201.9101123596deg, 100%, 24.9019607843%);
+  --cyan: hsl(178.3146067416deg, 100%, 34.9019607843%);
+  --cyan-light: hsl(178.3146067416deg, 100%, 44.9019607843%);
+  --cyan-dark: hsl(178.3146067416deg, 100%, 24.9019607843%);
+  --error: hsl(335.4782608696deg, 90.5511811024%, 49.8039215686%);
+  --error-light: hsl(335.4782608696deg, 90.5511811024%, 59.8039215686%);
+  --error-dark: hsl(335.4782608696deg, 90.5511811024%, 39.8039215686%);
+  --green: hsl(111.8446601942deg, 64.7798742138%, 31.1764705882%);
+  --green-light: hsl(111.8446601942deg, 64.7798742138%, 41.1764705882%);
+  --green-dark: hsl(111.8446601942deg, 64.7798742138%, 21.1764705882%);
+  --grey: hsl(0deg, 0%, 56.4705882353%);
+  --grey-light: hsl(0deg, 0%, 66.4705882353%);
+  --grey-dark: hsl(0deg, 0%, 46.4705882353%);
+  --orange: hsl(29.4782608696deg, 100%, 45.0980392157%);
+  --orange-light: hsl(29.4782608696deg, 100%, 55.0980392157%);
+  --orange-dark: hsl(29.4782608696deg, 100%, 35.0980392157%);
+  --purple: hsl(261.7021276596deg, 100%, 63.137254902%);
+  --purple-light: hsl(261.7021276596deg, 100%, 73.137254902%);
+  --purple-dark: hsl(261.7021276596deg, 100%, 53.137254902%);
+  --primary: hsl(266.301369863deg, 89.387755102%, 51.9607843137%);
+  --primary-light: hsl(266.301369863deg, 89.387755102%, 61.9607843137%);
+  --primary-dark: hsl(266.301369863deg, 89.387755102%, 41.9607843137%);
+  --red: hsl(6.2608695652deg, 100%, 45.0980392157%);
+  --red-light: hsl(6.2608695652deg, 100%, 55.0980392157%);
+  --red-dark: hsl(6.2608695652deg, 100%, 35.0980392157%);
+  --secondary: hsl(35.4418604651deg, 87.7551020408%, 51.9607843137%);
+  --secondary-light: hsl(35.4418604651deg, 87.7551020408%, 61.9607843137%);
+  --secondary-dark: hsl(35.4418604651deg, 87.7551020408%, 41.9607843137%);
+  --success: hsl(166.4210526316deg, 74.8031496063%, 50.1960784314%);
+  --success-light: hsl(166.4210526316deg, 74.8031496063%, 60.1960784314%);
+  --success-dark: hsl(166.4210526316deg, 74.8031496063%, 40.1960784314%);
+  --white: hsl(0deg, 0%, 100%);
+  --white-light: hsl(0deg, 0%, 100%);
+  --white-dark: hsl(0deg, 0%, 90%);
+  --yellow: hsl(51.1304347826deg, 100%, 45.0980392157%);
+  --yellow-light: hsl(51.1304347826deg, 100%, 55.0980392157%);
+  --yellow-dark: hsl(51.1304347826deg, 100%, 35.0980392157%);
+  --angel-care: linear-gradient(-225deg, #ffe29f 0%, #ffa99f 48%, #ff719a 100%);
+  --aqua-splash: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
+  --dusty-grass: linear-gradient(120deg, #d4fc79 0%, #96e6a1 100%);
+  --frozen-dreams: linear-gradient(
+    to top,
+    #fdcbf1 0%,
+    #fdcbf1 1%,
+    #e6dee9 100%
+  );
+  --fruit-blend: linear-gradient(to right, #f9d423 0%, #ff4e50 100%);
+  --grown-early: linear-gradient(to top, #0ba360 0%, #3cba92 100%);
+  --happy-acid: linear-gradient(to top, #37ecba 0%, #72afd3 100%);
+  --happy-memories: linear-gradient(-60deg, #ff5858 0%, #f09819 100%);
+  --hidden-jaguar: linear-gradient(to top, #0fd850 0%, #f9f047 100%);
+  --itmeo-branding: linear-gradient(-225deg, #2af598 0%, #009efd 100%);
+  --mean-fruit: linear-gradient(120deg, #fccb90 0%, #d57eeb 100%);
+  --millenium-pine: linear-gradient(to top, #50cc7f 0%, #f5d100 100%);
+  --morpheus-den: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+  --juicy-cake: linear-gradient(to top, #e14fad 0%, #f9d423 100%);
+  --night-call: linear-gradient(-225deg, #ac32e4 0%, #7918f2 48%, #4801ff 100%);
+  --night-fade: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);
+  --new-life: linear-gradient(to right, #43e97b 0%, #38f9d7 100%);
+  --orange-juice: linear-gradient(-20deg, #fc6076 0%, #ff9a44 100%);
+  --palo-alto: linear-gradient(-60deg, #16a085 0%, #f4d03f 100%);
+  --phoenix-start: linear-gradient(to right, #f83600 0%, #f9d423 100%);
+  --purple-gradient: linear-gradient(270deg, #8743ff 0%, #4136f1 100%);
+  --rainy-ashville: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
+  --royal-garden: linear-gradient(to right, #ed6ea0 0%, #ec8c69 100%);
+  --smart-indigo: linear-gradient(to top, #b224ef 0%, #7579ff 100%);
+  --snow-again: linear-gradient(
+    to right,
+    rgb(230 233 240 / 50%),
+    rgb(238 241 245 / 50%)
+  );
+  --sugar-lollipop: linear-gradient(
+    -225deg,
+    #a445b2 0%,
+    #d41872 52%,
+    #ff0066 100%
+  );
+  --summer-games: linear-gradient(to right, #92fe9d 0%, #00c9ff 100%);
+  --sunny-morning: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+  --supreme-sky: linear-gradient(
+    -225deg,
+    #d4ffec 0%,
+    #57f2cc 48%,
+    #4596fb 100%
+  );
+  --tempting-azure: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+  --true-sunset: linear-gradient(to right, #fa709a 0%, #fee140 100%);
+  --warm-flame: linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);
+  --young-grass: linear-gradient(to top, #9be15d 0%, #00e3ae 100%);
+  --primary-gradient: var(--night-call);
+  --secondary-gradient: var(--happy-memories);
+  --success-gradient: var(--itmeo-branding);
+  --error-gradient: var(--sugar-lollipop);
+}
+
+/*# sourceMappingURL=colors.css.map */
