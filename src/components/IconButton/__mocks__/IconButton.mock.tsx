@@ -1,5 +1,3 @@
-import React from "react";
-
 import { IconButtonProps } from "../IconButton.type";
 
 const IconButtonMock = (props: IconButtonProps) => (

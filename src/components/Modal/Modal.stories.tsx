@@ -1,11 +1,11 @@
 import { Meta, Story } from "@storybook/react";
-import React, { useState } from "react";
+import { useState } from "react";
 
 import Button from "components/Button";
 import Heading from "components/Heading";
 import Text from "components/Text";
 
-import { Modal } from "./Modal";
+import Modal from "./Modal";
 import { ModalProps } from "./Modal.type";
 import css from "./Story.module.scss";
 
@@ -19,7 +19,7 @@ export default {
 
 const Template: Story<ModalProps> = (args) => (
   <div className={css.Story}>
-    <div>
+    <div className={css.modalBlock}>
       <Heading>Some content</Heading>
       <Text>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa cumque,
@@ -279,24 +279,26 @@ const ToggleTemplate: Story<ModalProps> = () => {
       <Button className={css.closeButton} onClick={() => setOpen(true)}>
         Open
       </Button>
-      <Modal open={open} onClose={closeModal}>
-        <Heading>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-        </Heading>
-        <Text>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. A dicta et
-          minus quas quasi sit temporibus? Dicta dolorem eligendi error est
-          expedita, illum ipsum magni nulla quos soluta veritatis voluptas.
-        </Text>
-        <div className={css.buttonsContainer}>
-          <Button onClick={closeModal} color="success">
-            Confirm
-          </Button>
-          <Button onClick={closeModal} color="error">
-            Cancel
-          </Button>
-        </div>
-      </Modal>
+      {open && (
+        <Modal onClose={closeModal}>
+          <div className={css.modalBlock}>
+            <Heading>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            </Heading>
+            <Text>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. A dicta
+              et minus quas quasi sit temporibus? Dicta dolorem eligendi error
+              est expedita, illum ipsum magni nulla quos soluta veritatis
+              voluptas.
+            </Text>
+            <div className={css.buttonsContainer}>
+              <Button onClick={closeModal} color="success">
+                Confirm
+              </Button>
+            </div>
+          </div>
+        </Modal>
+      )}
     </div>
   );
 };
@@ -306,7 +308,6 @@ const Example = ToggleTemplate.bind({});
 
 Default.args = {
   open: true,
-  title: "Modal header",
 };
 
 Default.parameters = {

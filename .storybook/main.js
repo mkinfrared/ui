@@ -1,3 +1,9 @@
+const compileTokens = require("./compileTokens");
+
+process.env.DESIGN_TOKEN_GLOB = "**/*.tokens.{css,less,svg}";
+
+compileTokens();
+
 module.exports = {
   stories: ["../src/**/*.stories.mdx", "../src/**/*.stories.@(js|jsx|ts|tsx)"],
   addons: [
@@ -12,8 +18,17 @@ module.exports = {
     "@storybook/addon-a11y",
     "aria-live-storybook-addon",
     "storybook-design-token",
+    {
+      name: "storybook-addon-turbo-build",
+      options: {
+        // Please refer below tables for available options
+        optimizationLevel: 2,
+      },
+    },
   ],
   core: {
-    builder: "webpack5",
+    builder: {
+      name: "webpack5",
+    },
   },
 };

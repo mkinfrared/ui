@@ -38,7 +38,7 @@ const config: PlaywrightTestConfig = {
   testMatch: /.*(spec)\.ts/,
   fullyParallel: true,
   webServer: {
-    command: `serve ${storybookFolder} -l 8080`,
+    command: `http-server ${storybookFolder} -p 8080`,
     port: 8080,
     reuseExistingServer: true,
   },

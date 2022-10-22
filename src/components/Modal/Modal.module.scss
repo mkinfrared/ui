@@ -1,35 +1,37 @@
-@import "open-props/animations.min.css";
-@import "open-props/easings.min.css";
-@import "../../styles/common";
-
 .Modal {
-  border-radius: 0.8rem;
-  color: var(--white);
-  max-width: 80rem;
-  padding: 2rem;
+  inset: 0;
+  position: fixed;
 
-  &[open] {
+  .dialog {
     animation: modal-animation alternate;
-    animation-duration: 0.3s;
+    animation-duration: 250ms;
     animation-timing-function: var(--ease-elastic-4);
-  }
-
-  &::backdrop {
-    background-color: rgb(0 0 0 / 30%);
-  }
-
-  @include dark;
-
-  @include theme("light") {
-    @include light;
-
+    background-color: var(--white);
+    border: none;
+    border-radius: 0.2rem;
     color: var(--black);
+    left: 50%;
+    max-width: 90%;
+    padding: 2rem;
+    position: absolute;
+    top: 50%;
+    translate: -50% -50%;
+  }
+
+  .backdrop {
+    background-color: rgb(0 0 0 / 30%);
+    inset: 0;
+    position: absolute;
+    z-index: -1;
   }
 
   .close {
     float: right;
-    margin-right: -1rem;
-    margin-top: -1rem;
+
+    /* stylelint-disable declaration-block-no-duplicate-properties */
+    float: inline-end;
+
+    /* stylelint-enable declaration-block-no-duplicate-properties */
   }
 }
 

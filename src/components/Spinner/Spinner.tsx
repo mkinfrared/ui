@@ -1,4 +1,4 @@
-import React, { memo } from "react";
+import { memo } from "react";
 
 import { ReactComponent as Audio } from "spinners/audio.svg";
 import { ReactComponent as BallTriangle } from "spinners/ball-triangle.svg";

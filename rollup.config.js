@@ -4,7 +4,6 @@ import commonjs from "@rollup/plugin-commonjs";
 import resolve from "@rollup/plugin-node-resolve";
 import url from "@rollup/plugin-url";
 import svgr from "@svgr/rollup";
-import transformPath from "@zerollup/ts-transform-paths";
 import autoprefixer from "autoprefixer";
 import del from "rollup-plugin-delete";
 import postcss from "rollup-plugin-postcss";

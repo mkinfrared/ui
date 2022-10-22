@@ -2,7 +2,7 @@
 import { fireEvent, render, waitFor } from "@testing-library/react";
 import { act, renderHook } from "@testing-library/react-hooks";
 import userEvent from "@testing-library/user-event";
-import React, { useState } from "react";
+import { useState } from "react";
 
 import { useRoverIndex } from "./useRoverIndex";
 
@@ -53,7 +53,6 @@ describe("useRoverIndex", () => {
   });
 
   it("should set tabindex to 0 on the next child when 'ArrowRight' key is pressed", async () => {
-    const user = userEvent.setup();
     const key = "ArrowRight";
     const { getByTestId } = render(<ComponentMock />);
     const ul = getByTestId("list");
@@ -64,9 +63,11 @@ describe("useRoverIndex", () => {
     expect(second).toHaveAttribute("tabindex", "-1");
 
     // focus first element before handling the key events
-    await user.tab();
+    await userEvent.tab();
 
-    await user.keyboard('{ArrowRight}');
+    fireEvent.keyDown(ul, {
+      key,
+    });
 
     expect(first).toHaveAttribute("tabindex", "-1");
 
@@ -90,7 +91,6 @@ describe("useRoverIndex", () => {
   });
 
   it("should set tabindex to 0 on the next child when 'ArrowDown' key is pressed", async () => {
-    const user = userEvent.setup();
     const key = "ArrowDown";
     const { getByTestId } = render(<ComponentMock />);
     const ul = getByTestId("list");
@@ -101,8 +101,11 @@ describe("useRoverIndex", () => {
     expect(second).toHaveAttribute("tabindex", "-1");
 
     // focus first element before handling the key events
-    await user.tab();
-    await user.keyboard('{ArrowDown}');
+    await userEvent.tab();
+
+    fireEvent.keyDown(ul, {
+      key,
+    });
 
     expect(first).toHaveAttribute("tabindex", "-1");
 
@@ -126,7 +129,6 @@ describe("useRoverIndex", () => {
   });
 
   it("should set tabindex to 0 on the previous child when 'ArrowLeft' key is pressed", async () => {
-    const user = userEvent.setup();
     const key = "ArrowLeft";
     const { getByTestId } = render(<ComponentMock />);
     const ul = getByTestId("list");
@@ -136,10 +138,20 @@ describe("useRoverIndex", () => {
 
     expect(second).toHaveAttribute("tabindex", "-1");
 
-    await user.tab();
-    await user.keyboard('{ArrowRight}');
-    await user.keyboard('{ArrowRight}');
-    await user.keyboard('{ArrowRight}');
+    // focus first element before handling the key events
+    await userEvent.tab();
+
+    fireEvent.keyDown(ul, {
+      key: "ArrowRight",
+    });
+
+    fireEvent.keyDown(ul, {
+      key: "ArrowRight",
+    });
+
+    fireEvent.keyDown(ul, {
+      key: "ArrowRight",
+    });
 
     expect(fourth).toHaveAttribute("tabindex", "0");
 
@@ -161,7 +173,6 @@ describe("useRoverIndex", () => {
   });
 
   it("should set tabindex to 0 on the previous child when 'ArrowUp' key is pressed", async () => {
-    const user = userEvent.setup();
     const key = "ArrowUp";
     const { getByTestId } = render(<ComponentMock />);
     const ul = getByTestId("list");
@@ -172,11 +183,20 @@ describe("useRoverIndex", () => {
     expect(second).toHaveAttribute("tabindex", "-1");
 
     // focus first element before handling the key events
-    await user.tab();
-    await user.keyboard('{ArrowRight}');
-    await user.keyboard('{ArrowRight}');
-    await user.keyboard('{ArrowRight}');
-    
+    await userEvent.tab();
+
+    fireEvent.keyDown(ul, {
+      key: "ArrowRight",
+    });
+
+    fireEvent.keyDown(ul, {
+      key: "ArrowRight",
+    });
+
+    fireEvent.keyDown(ul, {
+      key: "ArrowRight",
+    });
+
     expect(fourth).toHaveAttribute("tabindex", "0");
 
     fireEvent.keyDown(ul, {
@@ -187,8 +207,10 @@ describe("useRoverIndex", () => {
 
     expect(fourth).toHaveAttribute("tabindex", "-1");
 
-    await user.keyboard('{ArrowUp}');
-    
+    fireEvent.keyDown(ul, {
+      key,
+    });
+
     expect(second).toHaveAttribute("tabindex", "0");
 
     expect(third).toHaveAttribute("tabindex", "-1");
@@ -227,12 +249,12 @@ describe("useRoverIndex", () => {
       fireEvent.click(add);
     });
 
-    await waitFor(() => {
+    await waitFor(async () => {
       for (const child of ul.children) {
         expect(child).toHaveAttribute("tabindex");
       }
       // focus first element before handling the key events
-      userEvent.tab();
+      await userEvent.tab();
 
       for (let i = 0; i < ul.children.length; i++) {
         fireEvent.keyDown(ul, { key });

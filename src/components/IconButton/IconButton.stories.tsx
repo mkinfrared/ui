@@ -1,5 +1,4 @@
 import { Meta, Story } from "@storybook/react";
-import React from "react";
 
 import Heading from "components/Heading";
 import { ReactComponent as Clear } from "icons/clear.svg";

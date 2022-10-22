@@ -2,17 +2,19 @@ name: CI
 
 on:
   push:
-    branches: [master]
+    branches: [ master ]
   pull_request:
-    branches: [master]
+    branches: [ master ]
 
 jobs:
   build:
+
     runs-on: ubuntu-latest
 
     strategy:
       matrix:
-        node-version: [16.x]
+        node-version: [ 16.x ]
+        dotnet: [ '6.0.x' ]
 
     steps:
       - uses: actions/checkout@v3
@@ -25,8 +27,14 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-          cache: "pnpm"
-          cache-dependency-path: "**/pnpm-lock.yaml"
+          cache: 'pnpm'
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'pnpm'
+          cache-dependency-path: '**/pnpm-lock.yaml'
 
       - name: Get pnpm store directory
         id: pnpm-cache
@@ -61,25 +69,26 @@ jobs:
           pnpm test
 
   e2e-linux:
+
     runs-on: ubuntu-latest
 
     strategy:
       matrix:
-        node-version: [16.x]
-        dotnet: ["6.0.x"]
+        node-version: [ 16.x ]
+        dotnet: [ '6.0.x' ]
 
     steps:
       - uses: actions/checkout@v3
 
       - uses: pnpm/action-setup@v2.0.1
         with:
-          version: 7.26.3
+          version: 7.5.0
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-          cache: "pnpm"
+          cache: 'pnpm'
 
       - name: Install dependencies
         run: |
@@ -94,25 +103,26 @@ jobs:
           pnpm e2e
 
   e2e-macos:
+
     runs-on: macos-latest
 
     strategy:
       matrix:
-        node-version: [16.x]
-        dotnet: ["6.0.x"]
+        node-version: [ 16.x ]
+        dotnet: [ '6.0.x' ]
 
     steps:
       - uses: actions/checkout@v3
 
       - uses: pnpm/action-setup@v2.0.1
         with:
-          version: 7.26.3
+          version: 7.5.0
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-          cache: "pnpm"
+          cache: 'pnpm'
 
       - name: Install dependencies
         run: |
@@ -127,30 +137,31 @@ jobs:
           pnpm e2e
 
   e2e-win:
+
     runs-on: windows-latest
 
     strategy:
       matrix:
-        node-version: [16.x]
-        dotnet: ["6.0.x"]
+        node-version: [ 16.x ]
+        dotnet: [ '6.0.x' ]
 
     steps:
-      - name: Set git to use LF
-        run: |
+      - name: Prepare git
+        run: |-
           git config --global core.autocrlf false
-          git config --global core.eol lf 
+          git config --global core.eol lf
 
       - uses: actions/checkout@v3
 
       - uses: pnpm/action-setup@v2.0.1
         with:
-          version: 7.26.3
+          version: 7.5.0
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-          cache: "pnpm"
+          cache: 'pnpm'
 
       - name: Install dependencies
         run: |

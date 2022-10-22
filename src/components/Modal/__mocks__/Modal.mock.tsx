@@ -1,5 +1,3 @@
-import React from "react";
-
 import { ModalProps } from "../Modal.type";
 
 const ModalMock = (props: ModalProps) => (

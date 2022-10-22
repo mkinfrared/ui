@@ -1,5 +1,3 @@
-import React from "react";
-
 import { ButtonGroupProps } from "../ButtonGroup.type";
 
 const ButtonGroupMock = (props: ButtonGroupProps) => (

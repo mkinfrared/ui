@@ -1,12 +1,11 @@
 import { Meta, Story } from "@storybook/react";
-import React from "react";
 
 import { NoImage } from "./NoImage";
 import { NoImageProps } from "./NoImage.type";
 import css from "./Story.module.scss";
 
 export default {
-  title: "COMPONENTS/NoImage",
+  title: "UI/NoImage",
   component: NoImage,
   parameters: {
     componentSubtitle: "Subtitle goes here",

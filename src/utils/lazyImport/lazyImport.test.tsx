@@ -1,6 +1,6 @@
 /* eslint-disable no-underscore-dangle */
 import { render, waitFor } from "@testing-library/react";
-import React, { Suspense } from "react";
+import { Suspense } from "react";
 
 import { lazyImport } from "./lazyImport";
 

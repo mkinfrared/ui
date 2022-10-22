@@ -1,4 +1,11 @@
-import React, { ReactElement, ReactNode, memo } from "react";
+import {
+  Children,
+  ReactElement,
+  ReactNode,
+  cloneElement,
+  isValidElement,
+  memo,
+} from "react";
 
 import { ButtonColors, ButtonProps, ButtonVariants } from "components/Button";
 import { classNames } from "utils";
@@ -34,20 +41,23 @@ const ButtonGroup = ({
     getButtonColor(color),
   ];
 
-  const childrenWithProps = React.Children.map<ReactNode, ReactNode>(
+  const childrenWithProps = Children.map<ReactNode, ReactNode>(
     children,
     (child) => {
-      if (!React.isValidElement(child)) {
+      if (!isValidElement(child)) {
         return child;
       }
 
       const buttonClassNames = classNames(child.props.className, css.button);
 
-      const clone = React.cloneElement<ButtonProps>(child as ReactElement, {
-        className: buttonClassNames,
-        variant: "contained",
-        color: "primary",
-      });
+      const clone = cloneElement<ButtonProps>(
+        child as ReactElement<ButtonProps>,
+        {
+          className: buttonClassNames,
+          variant: "contained",
+          color: "primary",
+        },
+      );
 
       return clone;
     },

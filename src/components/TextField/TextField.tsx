@@ -1,4 +1,4 @@
-import React, { memo } from "react";
+import { memo } from "react";
 
 import FakeButton from "components/FakeButton";
 import Heading from "components/Heading";

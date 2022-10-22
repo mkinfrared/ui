@@ -10,31 +10,29 @@
   ],
   "scripts": {
     "build": "rollup --bundleConfigAsCjs --config rollup.config.js",
-    "test": "cross-env CI=true DISABLE_NEW_JSX_TRANSFORM=true react-scripts test --collectCoverage",
-    "storybook": "pnpm build:colors && cross-env DISABLE_ESLINT_PLUGIN=true start-storybook -p 6007 -s public",
-    "build-storybook": "cross-env DISABLE_ESLINT_PLUGIN=true pnpm build:colors && build-storybook -s public",
+    "test": "cross-env CI=true react-scripts test --collectCoverage",
+    "storybook": "cross-env DISABLE_ESLINT_PLUGIN=true start-storybook -p 6007 -s public",
+    "build-storybook": "build-storybook -s public",
     "coverage": "open-cli coverage/lcov-report/index.html",
     "updates": "ncu",
     "clean": "rm -rf node_modules",
-    "build:colors": "sass src/styles/colors.scss src/styles/colors.css",
-    "e2e": "pnpm e2e:prepare && pnpm e2e:run",
+    "e2e": "pnpm dlx playwright test -c src/playwright.config.ts",
     "e2e:debug": "cross-env PWDEBUG=console pnpm dlx playwright test -c src/playwright.config.ts",
     "e2e:prepare": "npx playwright install --with-deps",
-    "e2e:run": "npx playwright test -c src/playwright.config.ts",
-    "e2e:clean": "rm -rf **/*.e2e.spec.ts-snapshots",
     "lint": "pnpm format && pnpm lint:styles && pnpm lint:ts",
     "lint:ts": "eslint --cache --fix --ext .ts,.tsx .",
     "lint:styles": "stylelint \"**/*.scss\" --fix",
     "format": "prettier --write \".\""
   },
   "dependencies": {
+    "css-has-pseudo": "^5.0.2",
     "open-props": "^1.5.5",
     "react-transition-group": "^4.4.5",
     "react-use": "^17.4.0",
     "uuid": "^9.0.0"
   },
   "devDependencies": {
-    "@playwright/test": "^1.30.0",
+    "@playwright/test": "^1.32.0",
     "@rollup/plugin-babel": "^6.0.3",
     "@rollup/plugin-commonjs": "^24.0.1",
     "@rollup/plugin-node-resolve": "^15.0.1",
@@ -98,8 +96,8 @@
     "rollup-plugin-ts-treeshaking": "^1.0.2",
     "rollup-plugin-visualizer": "^5.9.0",
     "sass": "^1.58.0",
-    "serve": "^14.2.0",
-    "storybook-design-token": "^2.8.2",
+    "storybook-addon-turbo-build": "^1.1.0",
+    "storybook-design-token": "^2.9.0",
     "stylelint": "^14.16.1",
     "stylelint-config-prettier-scss": "^0.0.1",
     "stylelint-config-standard": "^29.0.0",
@@ -141,7 +139,7 @@
     ],
     "coverageThreshold": {
       "global": {
-        "branches": 80,
+        "branches": 75,
         "functions": 80,
         "lines": 80,
         "statements": 80

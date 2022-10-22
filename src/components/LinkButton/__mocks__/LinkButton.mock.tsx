@@ -1,5 +1,3 @@
-import React from "react";
-
 import { LinkButtonProps } from "../LinkButton.type";
 
 const LinkButtonMock = (props: LinkButtonProps) => (

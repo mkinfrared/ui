@@ -1,5 +1,5 @@
 import { Meta } from "@storybook/react";
-import React, { useRef } from "react";
+import { useRef } from "react";
 
 import Heading from "components/Heading";
 import Text from "components/Text";

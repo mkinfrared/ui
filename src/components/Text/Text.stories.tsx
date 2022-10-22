@@ -1,5 +1,4 @@
 import { Meta, Story } from "@storybook/react";
-import React from "react";
 
 import css from "./Story.module.scss";
 import { Text } from "./Text";
