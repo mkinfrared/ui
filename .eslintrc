@@ -58,7 +58,7 @@
     // typescript already handles that issue
     "import/no-unresolved": "off",
     "import/no-unused-modules": [
-      "error",
+      "warn",
       {
         "unusedExports": true
       }

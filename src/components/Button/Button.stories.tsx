@@ -1,6 +1,5 @@
 import { action } from "@storybook/addon-actions";
 import { Meta, Story } from "@storybook/react";
-import React from "react";
 
 import Heading from "components/Heading";
 import { ReactComponent as Doc } from "icons/description.svg";

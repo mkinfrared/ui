@@ -1,4 +1,4 @@
-import React, { ReactEventHandler, memo, useEffect, useRef } from "react";
+import { ReactEventHandler, memo, useEffect, useRef } from "react";
 
 import IconButton from "components/IconButton";
 import { ReactComponent as Close } from "icons/clear.svg";

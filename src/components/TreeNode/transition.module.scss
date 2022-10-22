@@ -1,0 +1,15 @@
+.enter {
+  height: 0;
+}
+
+.enterActive {
+  height: var(--group-height);
+}
+
+.exit {
+  height: var(--group-height);
+}
+
+.exitActive {
+  height: 0;
+}

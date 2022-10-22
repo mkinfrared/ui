@@ -2,7 +2,7 @@
 import { fireEvent, render, waitFor } from "@testing-library/react";
 import { act, renderHook } from "@testing-library/react-hooks";
 import userEvent from "@testing-library/user-event";
-import React, { useState } from "react";
+import { useState } from "react";
 
 import { useRoverIndex } from "./useRoverIndex";
 

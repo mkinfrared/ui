@@ -1,5 +1,4 @@
 import { Meta, Story } from "@storybook/react";
-import React from "react";
 
 import Checkbox from "components/Checkbox";
 import Radio from "components/Radio";

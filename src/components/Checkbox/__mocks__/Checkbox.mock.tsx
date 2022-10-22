@@ -1,5 +1,3 @@
-import React from "react";
-
 import { CheckboxProps } from "../Checkbox.type";
 
 const CheckboxMock = (props: CheckboxProps) => (

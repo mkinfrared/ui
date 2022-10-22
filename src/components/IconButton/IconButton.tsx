@@ -1,5 +1,5 @@
 /* eslint-disable react/button-has-type */
-import React, { memo } from "react";
+import { memo } from "react";
 
 import { ButtonColors, ButtonVariants } from "components/Button";
 import Spinner from "components/Spinner";

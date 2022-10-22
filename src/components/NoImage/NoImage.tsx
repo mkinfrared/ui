@@ -1,4 +1,4 @@
-import React, { memo } from "react";
+import { memo } from "react";
 
 import { ReactComponent as Cross } from "icons/cross-circle.svg";
 import { classNames } from "utils";

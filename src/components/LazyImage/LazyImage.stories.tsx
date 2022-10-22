@@ -1,5 +1,4 @@
 import { Meta, Story } from "@storybook/react";
-import React from "react";
 
 import avif1x from "../../images/man-bear-pig-avif-1x.avif";
 import avif2x from "../../images/man-bear-pig-avif-2x.avif";
