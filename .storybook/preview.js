@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 
-import "../src/styles/colors.css";
 import { useTheme } from "../src/hooks/useTheme";
 
 import "./styles/story.scss";

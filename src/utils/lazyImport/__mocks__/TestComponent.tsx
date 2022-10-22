@@ -1,5 +1,3 @@
-import React from "react";
-
 const TestComponent = () => (
   <div>
     <p>Test Component</p>

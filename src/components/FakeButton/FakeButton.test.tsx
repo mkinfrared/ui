@@ -1,5 +1,4 @@
 import { fireEvent, render } from "@testing-library/react";
-import React from "react";
 
 import { FakeButton } from "./FakeButton";
 
@@ -17,7 +16,7 @@ describe("<FakeButton />", () => {
     expect(container).toMatchSnapshot();
   });
 
-  it("should call onClick passed from props on Enter press", () => {
+  it("should call onClick passed from props on 'Enter' or space key press", () => {
     const { getByTestId } = render(Component);
     const key = "Enter";
     const fakeButton = getByTestId("FakeButton");
@@ -28,6 +27,13 @@ describe("<FakeButton />", () => {
     });
 
     expect(onClick).toHaveBeenCalledTimes(1);
+
+    fireEvent.keyDown(fakeButton, {
+      key: " ",
+      target: fakeButton,
+    });
+
+    expect(onClick).toHaveBeenCalledTimes(2);
   });
 
   it("should not call onClick passed from props if pressed button is not 'Enter'", () => {

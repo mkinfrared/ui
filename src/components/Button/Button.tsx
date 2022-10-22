@@ -1,5 +1,5 @@
 /* eslint-disable react/button-has-type */
-import React, { memo } from "react";
+import { memo } from "react";
 
 import Spinner from "components/Spinner";
 import { classNames } from "utils";
@@ -30,6 +30,7 @@ const getButtonColor = (color: ButtonColors) => colors[color];
 const getButtonVariant = (variant: ButtonVariants) => variants[variant];
 
 const Button = ({
+  buttonRef,
   children,
   className,
   color = "primary",
@@ -55,6 +56,7 @@ const Button = ({
       className={classNames(...classes)}
       disabled={disabled}
       data-testid="Button"
+      ref={buttonRef}
       type={type}
       {...rest}
     >

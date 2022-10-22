@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TreeNode /> should match the snapshot 1`] = `
+<div>
+  <li
+    aria-expanded="false"
+    aria-selected="false"
+    class="TreeNode"
+    data-nodeid="foobar"
+    data-testid="TreeNode"
+    role="treeitem"
+  >
+    <div
+      class="FakeButton label"
+      data-testid="FakeButton"
+      role="button"
+      tabindex="-1"
+    >
+      <svg
+        class="icon visible"
+      >
+        chevron.svg
+      </svg>
+      <h4
+        class="Heading"
+        data-testid="Heading"
+      >
+        Marklar
+      </h4>
+    </div>
+  </li>
+</div>
+`;

@@ -1,16 +1,17 @@
-import React, { memo } from "react";
+import { memo } from "react";
 
 import { classNames } from "utils";
 
 import css from "./Heading.module.scss";
 import { HeadingProps } from "./Heading.type";
 
-const Heading = ({ className, children, variant = "h3" }: HeadingProps) => {
+const Heading = ({ className, children, id, variant = "h3" }: HeadingProps) => {
   switch (variant) {
     case "h1":
       return (
         <h1
           className={classNames(css.Heading, className)}
+          id={id}
           data-testid="Heading"
         >
           {children}
@@ -20,6 +21,7 @@ const Heading = ({ className, children, variant = "h3" }: HeadingProps) => {
       return (
         <h2
           className={classNames(css.Heading, className)}
+          id={id}
           data-testid="Heading"
         >
           {children}
@@ -29,6 +31,7 @@ const Heading = ({ className, children, variant = "h3" }: HeadingProps) => {
       return (
         <h3
           className={classNames(css.Heading, className)}
+          id={id}
           data-testid="Heading"
         >
           {children}
@@ -38,6 +41,7 @@ const Heading = ({ className, children, variant = "h3" }: HeadingProps) => {
       return (
         <h4
           className={classNames(css.Heading, className)}
+          id={id}
           data-testid="Heading"
         >
           {children}
@@ -47,6 +51,7 @@ const Heading = ({ className, children, variant = "h3" }: HeadingProps) => {
       return (
         <h5
           className={classNames(css.Heading, className)}
+          id={id}
           data-testid="Heading"
         >
           {children}
@@ -56,6 +61,7 @@ const Heading = ({ className, children, variant = "h3" }: HeadingProps) => {
       return (
         <h6
           className={classNames(css.Heading, className)}
+          id={id}
           data-testid="Heading"
         >
           {children}

@@ -1,0 +1,72 @@
+@import "../../styles/common";
+
+.TreeNode {
+  --duration: 250ms;
+  --timing-function: ease-in-out;
+  --depth: var(--group-depth, 0);
+  --multiplier: calc(var(--depth) / 10);
+  --node-padding: calc(var(--depth) * 2ch);
+  --border-color: transparent;
+
+  list-style: none;
+
+  &:focus {
+    outline: none;
+
+    > .label {
+      @include focus-visible;
+    }
+  }
+
+  &:is([aria-expanded="true"]) > .label {
+    .icon {
+      transform: rotate(90deg);
+    }
+  }
+
+  &:is([aria-selected="true"]) > .label {
+    --border-color: var(--secondary);
+
+    background: var(--purple-gradient);
+  }
+
+  .label {
+    border-left: 0.4rem var(--border-color) solid;
+    cursor: pointer;
+    display: grid;
+    gap: 0 1em;
+    grid-template-columns: 2.4rem 1fr;
+    padding-inline: var(--node-padding) 0;
+    transition: background-color var(--duration) var(--timing-function);
+
+    &:hover {
+      background: hsl(0deg 100% 100% / 20%);
+    }
+  }
+
+  .icon {
+    fill: currentcolor;
+    height: 100%;
+    padding: 0.3em;
+    transition: transform var(--duration);
+    visibility: hidden;
+
+    &.visible {
+      visibility: visible;
+    }
+  }
+
+  .group {
+    --group-depth: calc(var(--depth) + 1);
+
+    list-style: none;
+
+    /* to overcome overflow-hidden issue
+    *  add padding 4px and margin-block -4px (2px of outline on each side)
+     */
+    margin-block: -4px;
+    overflow-y: hidden;
+    padding: 4px;
+    transition: height var(--duration) var(--timing-function);
+  }
+}

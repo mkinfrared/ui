@@ -1,3 +1,4 @@
+@import "./tokens/color.tokens";
 @import "./common";
 
 :root {
@@ -12,7 +13,12 @@ html {
 
 * {
   scrollbar-color: hsl(0deg 0% 100% / 30%) hsl(0deg 0% 100% / 10%);
-  scrollbar-width: thin; // width is ~8-10px
+
+  // the width of the scrollbar will depend on the platform
+  // on window 10 the width is approximately 8-10px
+  // on windows 11 it is much thinner
+  // also note that this rule applies to firefox only
+  scrollbar-width: thin; // width is ~8-10px on windows 10
 
   &::-webkit-scrollbar {
     background-color: hsl(0deg 0% 100% / 10%);

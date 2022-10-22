@@ -12,7 +12,7 @@ const useMutationObserver = (cb: MutationCallback, config = defaultConfig) => {
     const obs = new MutationObserver(cb);
 
     setObserver(obs);
-  }, [cb, config, setObserver]);
+  }, [cb, config]);
 
   const refCallback = useCallback(
     (node: HTMLElement | null) => {

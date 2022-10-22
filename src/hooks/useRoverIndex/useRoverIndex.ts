@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 
 import { useMutationObserver } from "hooks/useMutationObserver";
+import { isHtmlElement } from "utils/typeGuards";
 
 const useRoverIndex = (selector = ":scope > *") => {
   const [rootNode, setRootNode] = useState<HTMLElement | null>(null);
@@ -129,7 +130,7 @@ const useRoverIndex = (selector = ":scope > *") => {
     const targets = rootNode?.querySelectorAll(selector);
 
     targets?.forEach((target, index) => {
-      if (!(target instanceof HTMLElement)) {
+      if (!isHtmlElement(target)) {
         return;
       }
 

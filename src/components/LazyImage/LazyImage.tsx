@@ -1,4 +1,4 @@
-import React, { memo, useRef, useState } from "react";
+import { memo, useRef, useState } from "react";
 import { useIntersection } from "react-use";
 
 import NoImage from "components/NoImage";

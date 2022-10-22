@@ -1,4 +1,4 @@
-import React, { KeyboardEventHandler, memo, useEffect, useRef } from "react";
+import { KeyboardEventHandler, useEffect, useRef } from "react";
 
 import { classNames } from "utils";
 
@@ -10,6 +10,7 @@ const FakeButton = ({
   className,
   children,
   onClick,
+  tabIndex = 0,
 }: FakeButtonProps) => {
   const ref = useRef<HTMLDivElement>(null);
 
@@ -37,7 +38,7 @@ const FakeButton = ({
       onClick={onClick}
       onKeyDown={handleKeyDown}
       role="button"
-      tabIndex={0}
+      tabIndex={tabIndex}
       data-testid="FakeButton"
     >
       {children}
@@ -47,4 +48,4 @@ const FakeButton = ({
 
 export { FakeButton };
 
-export default memo(FakeButton);
+export default FakeButton;

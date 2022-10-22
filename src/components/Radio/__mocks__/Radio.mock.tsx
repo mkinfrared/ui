@@ -1,5 +1,3 @@
-import React from "react";
-
 import { RadioProps } from "../Radio.type";
 
 const RadioMock = (props: RadioProps) => (
