@@ -10,7 +10,7 @@ import del from "rollup-plugin-delete";
 import postcss from "rollup-plugin-postcss";
 import { terser } from "rollup-plugin-terser";
 import ts from "rollup-plugin-ts";
-import visualizer from "rollup-plugin-visualizer";
+import { visualizer } from "rollup-plugin-visualizer";
 import typescript from "typescript";
 
 const buildDir = "lib";
@@ -35,7 +35,7 @@ const getPlugins = () => {
     ts({
       typescript,
       tsconfig: "./tsconfig.json",
-      transformers: [transformPath],
+      // transformers: [transformPath],
     }),
     babel({
       exclude: "node_modules/**",

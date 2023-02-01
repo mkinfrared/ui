@@ -13,8 +13,10 @@
   &:focus {
     outline: none;
 
-    .label {
+    > .label {
       @include focus-visible;
+
+      //outline-offset: -2px;
     }
   }
 
@@ -60,8 +62,12 @@
     --group-depth: calc(var(--depth) + 1);
 
     list-style: none;
+    /* to overcome overflow-hidden issue
+    *  add padding 4px and margin-block -4px (2px of outline on each side)
+     */
+    margin-block: -4px;
     overflow-y: hidden;
-    padding: 0;
+    padding: 4px;
     transition: height var(--duration) var(--timing-function);
   }
 }

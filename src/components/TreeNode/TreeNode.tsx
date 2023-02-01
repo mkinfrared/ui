@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/role-has-required-aria-props */
 import { useContext } from "react";
 import { CSSTransition } from "react-transition-group";
 
@@ -37,19 +38,34 @@ const TreeNode = ({ children, className, label, nodeId }: TreeNodeProps) => {
 
   const isExpandable = Array.isArray(children) ? !!children.length : !!children;
 
+  const getAriaProps = () => {
+    if (children) {
+      return {
+        "aria-expanded": !!isExpanded?.(nodeId),
+        "aria-selected": !!isActive?.(nodeId),
+      };
+    }
+
+    return { "aria-selected": !!isActive?.(nodeId) };
+  };
+
   return (
     <li
-      className={classNames(css.TreeNode, className)}
       role="treeitem"
-      aria-expanded={!!isExpanded?.(nodeId)}
-      aria-selected={!!isActive?.(nodeId)}
+      className={classNames(css.TreeNode, className)}
+      data-nodeid={nodeId}
       onKeyDown={(event) => {
-        const { key } = event;
+        const { key, target, currentTarget } = event;
 
-        if (key === " ") {
+        if (key !== " ") {
+          return;
+        }
+
+        if (target === currentTarget) {
           handleClick();
         }
       }}
+      {...getAriaProps()}
     >
       <FakeButton
         className={classNames(
@@ -58,7 +74,7 @@ const TreeNode = ({ children, className, label, nodeId }: TreeNodeProps) => {
           isActive?.(nodeId) && css.active,
         )}
         onClick={handleClick}
-        tabIndex={0}
+        tabIndex={-1}
       >
         <Chevron
           className={classNames(css.icon, isExpandable && css.visible)}
@@ -71,7 +87,7 @@ const TreeNode = ({ children, className, label, nodeId }: TreeNodeProps) => {
         classNames={transition}
         unmountOnExit
       >
-        <ul className={css.group} role="group" ref={refCallback}>
+        <ul className={css.group} role="group" ref={refCallback} tabIndex={-1}>
           {children}
         </ul>
       </CSSTransition>

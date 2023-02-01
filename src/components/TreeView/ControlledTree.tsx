@@ -5,13 +5,17 @@ import { classNames } from "utils";
 
 import css from "./TreeView.module.scss";
 import { ControlledTreeProps } from "./TreeView.type";
+import useTreeAccessibility from "./useTreeAccessibility";
 
 const ControlledTree = ({
   children,
   className,
   onNodeClick,
   expanded,
+  activeNodeId,
 }: ControlledTreeProps) => {
+  const refCallback = useTreeAccessibility(onNodeClick);
+  const isActive = (nodeId: string) => activeNodeId === nodeId;
   const isExpanded = (nodeId: string) => expanded.has(nodeId);
 
   const handleNodeClick = (nodeId: string) => {
@@ -20,10 +24,11 @@ const ControlledTree = ({
 
   const value = useMemo(
     () => ({
+      isActive,
       isExpanded,
       onNodeClick: handleNodeClick,
     }),
-    [handleNodeClick, isExpanded],
+    [handleNodeClick, isActive, isExpanded],
   );
 
   return (
@@ -32,6 +37,7 @@ const ControlledTree = ({
         className={classNames(css.TreeView, className)}
         role="tree"
         data-testid="UncontrolledTreeView"
+        ref={refCallback}
       >
         {children}
       </ul>
