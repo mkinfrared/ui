@@ -1,4 +1,4 @@
-import React, { ReactNode, memo } from "react";
+import React, { ReactElement, ReactNode, memo } from "react";
 
 import { ButtonColors, ButtonProps, ButtonVariants } from "components/Button";
 import { classNames } from "utils";
@@ -43,7 +43,7 @@ const ButtonGroup = ({
 
       const buttonClassNames = classNames(child.props.className, css.button);
 
-      const clone = React.cloneElement<ButtonProps>(child, {
+      const clone = React.cloneElement<ButtonProps>(child as ReactElement, {
         className: buttonClassNames,
         variant: "contained",
         color: "primary",

@@ -31,6 +31,10 @@ export { default as Heading } from "components/Heading";
 
 export * from "components/Heading";
 
+export { default as LazyImage } from "components/LazyImage";
+
+export * from "components/LazyImage";
+
 export { default as LinkButton } from "components/LinkButton";
 
 export * from "components/LinkButton";
@@ -38,6 +42,10 @@ export * from "components/LinkButton";
 export { default as Loading } from "components/Loading";
 
 export * from "components/Loading";
+
+export { default as Modal } from "components/Modal";
+
+export * from "components/Modal";
 
 export { default as Portal } from "components/Portal";
 
