@@ -4,7 +4,7 @@ type Key<T extends Record<string, any>> = keyof T extends string
 type Entry = [string, string[]];
 type FormData<T extends Record<string, any>> = Record<keyof T, string[]>;
 
-const getFormErrors = <T>(data: FormData<T>) => {
+const getFormErrors = <T extends Record<string, any>>(data: FormData<T>) => {
   const responseErrors = Object.entries(data).map((entry) => {
     const [key, value] = entry as Entry;
 

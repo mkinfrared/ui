@@ -52,7 +52,8 @@ describe("useRoverIndex", () => {
     expect(firstChild).toHaveAttribute("tabindex", "0");
   });
 
-  it("should set tabindex to 0 on the next child when 'ArrowRight' key is pressed", () => {
+  it("should set tabindex to 0 on the next child when 'ArrowRight' key is pressed", async () => {
+    const user = userEvent.setup();
     const key = "ArrowRight";
     const { getByTestId } = render(<ComponentMock />);
     const ul = getByTestId("list");
@@ -63,11 +64,9 @@ describe("useRoverIndex", () => {
     expect(second).toHaveAttribute("tabindex", "-1");
 
     // focus first element before handling the key events
-    userEvent.tab();
+    await user.tab();
 
-    fireEvent.keyDown(ul, {
-      key,
-    });
+    await user.keyboard('{ArrowRight}');
 
     expect(first).toHaveAttribute("tabindex", "-1");
 
@@ -90,7 +89,8 @@ describe("useRoverIndex", () => {
     expect(fourth).toHaveAttribute("tabindex", "0");
   });
 
-  it("should set tabindex to 0 on the next child when 'ArrowDown' key is pressed", () => {
+  it("should set tabindex to 0 on the next child when 'ArrowDown' key is pressed", async () => {
+    const user = userEvent.setup();
     const key = "ArrowDown";
     const { getByTestId } = render(<ComponentMock />);
     const ul = getByTestId("list");
@@ -101,11 +101,8 @@ describe("useRoverIndex", () => {
     expect(second).toHaveAttribute("tabindex", "-1");
 
     // focus first element before handling the key events
-    userEvent.tab();
-
-    fireEvent.keyDown(ul, {
-      key,
-    });
+    await user.tab();
+    await user.keyboard('{ArrowDown}');
 
     expect(first).toHaveAttribute("tabindex", "-1");
 
@@ -128,7 +125,8 @@ describe("useRoverIndex", () => {
     expect(fourth).toHaveAttribute("tabindex", "0");
   });
 
-  it("should set tabindex to 0 on the previous child when 'ArrowLeft' key is pressed", () => {
+  it("should set tabindex to 0 on the previous child when 'ArrowLeft' key is pressed", async () => {
+    const user = userEvent.setup();
     const key = "ArrowLeft";
     const { getByTestId } = render(<ComponentMock />);
     const ul = getByTestId("list");
@@ -138,20 +136,10 @@ describe("useRoverIndex", () => {
 
     expect(second).toHaveAttribute("tabindex", "-1");
 
-    // focus first element before handling the key events
-    userEvent.tab();
-
-    fireEvent.keyDown(ul, {
-      key: "ArrowRight",
-    });
-
-    fireEvent.keyDown(ul, {
-      key: "ArrowRight",
-    });
-
-    fireEvent.keyDown(ul, {
-      key: "ArrowRight",
-    });
+    await user.tab();
+    await user.keyboard('{ArrowRight}');
+    await user.keyboard('{ArrowRight}');
+    await user.keyboard('{ArrowRight}');
 
     expect(fourth).toHaveAttribute("tabindex", "0");
 
@@ -172,7 +160,8 @@ describe("useRoverIndex", () => {
     expect(third).toHaveAttribute("tabindex", "-1");
   });
 
-  it("should set tabindex to 0 on the previous child when 'ArrowUp' key is pressed", () => {
+  it("should set tabindex to 0 on the previous child when 'ArrowUp' key is pressed", async () => {
+    const user = userEvent.setup();
     const key = "ArrowUp";
     const { getByTestId } = render(<ComponentMock />);
     const ul = getByTestId("list");
@@ -183,20 +172,11 @@ describe("useRoverIndex", () => {
     expect(second).toHaveAttribute("tabindex", "-1");
 
     // focus first element before handling the key events
-    userEvent.tab();
-
-    fireEvent.keyDown(ul, {
-      key: "ArrowRight",
-    });
-
-    fireEvent.keyDown(ul, {
-      key: "ArrowRight",
-    });
-
-    fireEvent.keyDown(ul, {
-      key: "ArrowRight",
-    });
-
+    await user.tab();
+    await user.keyboard('{ArrowRight}');
+    await user.keyboard('{ArrowRight}');
+    await user.keyboard('{ArrowRight}');
+    
     expect(fourth).toHaveAttribute("tabindex", "0");
 
     fireEvent.keyDown(ul, {
@@ -207,10 +187,8 @@ describe("useRoverIndex", () => {
 
     expect(fourth).toHaveAttribute("tabindex", "-1");
 
-    fireEvent.keyDown(ul, {
-      key,
-    });
-
+    await user.keyboard('{ArrowUp}');
+    
     expect(second).toHaveAttribute("tabindex", "0");
 
     expect(third).toHaveAttribute("tabindex", "-1");
