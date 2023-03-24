@@ -170,5 +170,10 @@
       "prettier --write",
       "eslint --fix"
     ]
+  },
+  "pnpm": {
+    "overrides": {
+      "canvas": "2.11.0"
+    }
   }
 }
