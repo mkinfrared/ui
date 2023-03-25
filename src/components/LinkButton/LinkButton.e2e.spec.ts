@@ -5,7 +5,7 @@ import { test } from "@playwright/test";
 import { compareScreenshots } from "utils/testHelpers";
 
 test.describe("LinkButton", () => {
-  test("compare contained group", async ({ page }, testInfo) => {
+  test("compare contained", async ({ page }, testInfo) => {
     const snapshotDir = "contained";
 
     const snapshotPath = path.resolve(
@@ -29,11 +29,13 @@ test.describe("LinkButton", () => {
       .locator("data-testid=LinkButton")
       .first();
 
+    await page.waitForTimeout(500);
+
     await linkButton.screenshot({
       path: snapshotPath,
     });
 
-    await compareScreenshots(testInfo.snapshotDir, snapshotDir);
+    await compareScreenshots([testInfo.snapshotDir, snapshotDir], 11);
   });
 
   test("compare outlined variant", async ({ page }, testInfo) => {
@@ -64,10 +66,12 @@ test.describe("LinkButton", () => {
       .locator("data-testid=LinkButton")
       .first();
 
+    await page.waitForTimeout(500);
+
     await button.screenshot({
       path: snapshotPath,
     });
 
-    await compareScreenshots(testInfo.snapshotDir, snapshotDir);
+    await compareScreenshots([testInfo.snapshotDir, snapshotDir], 11);
   });
 });

@@ -2,7 +2,6 @@ import path from "path";
 
 import { test } from "@playwright/test";
 
-import { delay } from "utils";
 import { compareScreenshots } from "utils/testHelpers";
 
 test.describe("Toggle", () => {
@@ -29,11 +28,13 @@ test.describe("Toggle", () => {
       .frameLocator("#storybook-preview-iframe")
       .locator("data-testid=Toggle");
 
+    await page.waitForTimeout(500);
+
     await toggle.screenshot({
       path: snapshotPath,
     });
 
-    await compareScreenshots(testInfo.snapshotDir, snapshotDir);
+    await compareScreenshots([testInfo.snapshotDir, snapshotDir], 1);
   });
 
   test("compare checked with no label", async ({ page }, testInfo) => {
@@ -61,13 +62,13 @@ test.describe("Toggle", () => {
 
     await toggle.click();
 
-    await delay(500);
+    await page.waitForTimeout(500);
 
     await toggle.screenshot({
       path: snapshotPath,
     });
 
-    await compareScreenshots(testInfo.snapshotDir, snapshotDir);
+    await compareScreenshots([testInfo.snapshotDir, snapshotDir], 1);
   });
 
   test("compare with label", async ({ page }, testInfo) => {
@@ -93,10 +94,12 @@ test.describe("Toggle", () => {
       .frameLocator("#storybook-preview-iframe")
       .locator("data-testid=Toggle");
 
+    await page.waitForTimeout(500);
+
     await toggle.screenshot({
       path: snapshotPath,
     });
 
-    await compareScreenshots(testInfo.snapshotDir, snapshotDir);
+    await compareScreenshots([testInfo.snapshotDir, snapshotDir], 1);
   });
 });

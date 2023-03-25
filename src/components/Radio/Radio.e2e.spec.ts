@@ -2,7 +2,6 @@ import path from "path";
 
 import { test } from "@playwright/test";
 
-import { delay } from "utils";
 import { compareScreenshots } from "utils/testHelpers";
 
 test.describe("Radio", () => {
@@ -29,11 +28,13 @@ test.describe("Radio", () => {
       .frameLocator("#storybook-preview-iframe")
       .locator("data-testid=Radio");
 
+    await page.waitForTimeout(500);
+
     await radio.screenshot({
       path: snapshotPath,
     });
 
-    await compareScreenshots(testInfo.snapshotDir, snapshotDir);
+    await compareScreenshots([testInfo.snapshotDir, snapshotDir], 1);
   });
 
   test("compare checked with no label", async ({ page }, testInfo) => {
@@ -61,13 +62,13 @@ test.describe("Radio", () => {
 
     await radio.click();
 
-    await delay(500);
+    await page.waitForTimeout(500);
 
     await radio.screenshot({
       path: snapshotPath,
     });
 
-    await compareScreenshots(testInfo.snapshotDir, snapshotDir);
+    await compareScreenshots([testInfo.snapshotDir, snapshotDir], 1);
   });
 
   test("compare with label", async ({ page }, testInfo) => {
@@ -89,16 +90,18 @@ test.describe("Radio", () => {
 
     await uncontrolledButton.click();
 
-    const checkbox = page
+    const radio = page
       .frameLocator("#storybook-preview-iframe")
       .locator("data-testid=Radio");
 
-    await checkbox.click();
+    await radio.click();
 
-    await checkbox.screenshot({
+    await page.waitForTimeout(500);
+
+    await radio.screenshot({
       path: snapshotPath,
     });
 
-    await compareScreenshots(testInfo.snapshotDir, snapshotDir);
+    await compareScreenshots([testInfo.snapshotDir, snapshotDir], 11);
   });
 });

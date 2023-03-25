@@ -16,9 +16,10 @@
     "coverage": "open-cli coverage/lcov-report/index.html",
     "updates": "ncu",
     "clean": "rm -rf node_modules",
-    "e2e": "pnpm dlx playwright test -c src/playwright.config.ts",
+    "e2e": "pnpm e2e:prepare && pnpm exec playwright test -c src/playwright.config.ts",
     "e2e:debug": "cross-env PWDEBUG=console pnpm dlx playwright test -c src/playwright.config.ts",
     "e2e:prepare": "npx playwright install --with-deps",
+    "clear:screenshots": "rm -rf **/*.spec.ts-snapshots",
     "lint": "pnpm format && pnpm lint:styles && pnpm lint:ts",
     "lint:ts": "eslint --cache --fix --ext .ts,.tsx .",
     "lint:styles": "stylelint \"**/*.scss\" --fix",
@@ -32,7 +33,7 @@
     "uuid": "^9.0.0"
   },
   "devDependencies": {
-    "@playwright/test": "^1.32.0",
+    "@playwright/test": "^1.32.1",
     "@rollup/plugin-babel": "^6.0.3",
     "@rollup/plugin-commonjs": "^24.0.1",
     "@rollup/plugin-node-resolve": "^15.0.1",
@@ -65,6 +66,7 @@
     "aria-live-storybook-addon": "^0.0.6",
     "autoprefixer": "^10.4.13",
     "babel-loader": "^9.1.2",
+    "chalk": "^4.1.2",
     "cross-env": "^7.0.3",
     "eslint": "^8.33.0",
     "eslint-config-airbnb": "^19.0.4",

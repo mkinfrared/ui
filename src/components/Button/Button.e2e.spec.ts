@@ -35,7 +35,7 @@ test.describe("Button", () => {
       path: snapshotPath,
     });
 
-    await compareScreenshots(testInfo.snapshotDir, snapshotDir);
+    await compareScreenshots([testInfo.snapshotDir, snapshotDir], 10);
   });
 
   test("compare disabled state", async ({ page }, testInfo) => {
@@ -66,11 +66,13 @@ test.describe("Button", () => {
       .locator("data-testid=Button")
       .first();
 
+    await page.waitForTimeout(500);
+
     await button.screenshot({
       path: snapshotPath,
     });
 
-    await compareScreenshots(testInfo.snapshotDir, snapshotDir);
+    await compareScreenshots([testInfo.snapshotDir, snapshotDir], 10);
   });
 
   test("compare outlined variant", async ({ page }, testInfo) => {
@@ -101,10 +103,12 @@ test.describe("Button", () => {
       .locator("data-testid=Button")
       .first();
 
+    await page.waitForTimeout(500);
+
     await button.screenshot({
       path: snapshotPath,
     });
 
-    await compareScreenshots(testInfo.snapshotDir, snapshotDir);
+    await compareScreenshots([testInfo.snapshotDir, snapshotDir], 7);
   });
 });

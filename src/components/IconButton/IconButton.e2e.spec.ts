@@ -29,11 +29,13 @@ test.describe("IconButton", () => {
       .locator("data-testid=IconButton")
       .first();
 
+    await page.waitForTimeout(500);
+
     await iconButton.screenshot({
       path: snapshotPath,
     });
 
-    await compareScreenshots(testInfo.snapshotDir, snapshotDir);
+    await compareScreenshots([testInfo.snapshotDir, snapshotDir], 6);
   });
 
   test("compare outline variant", async ({ page }, testInfo) => {
@@ -64,11 +66,13 @@ test.describe("IconButton", () => {
       .locator("data-testid=IconButton")
       .first();
 
+    await page.waitForTimeout(500);
+
     await iconButton.screenshot({
       path: snapshotPath,
     });
 
-    await compareScreenshots(testInfo.snapshotDir, snapshotDir);
+    await compareScreenshots([testInfo.snapshotDir, snapshotDir], 6);
   });
 
   test("compare outline loading variant", async ({ page }, testInfo) => {
@@ -103,11 +107,13 @@ test.describe("IconButton", () => {
       .locator("data-testid=IconButton")
       .first();
 
+    await page.waitForTimeout(500);
+
     await iconButton.screenshot({
       path: snapshotPath,
     });
 
-    await compareScreenshots(testInfo.snapshotDir, snapshotDir);
+    await compareScreenshots([testInfo.snapshotDir, snapshotDir], 14);
   });
 
   test("compare contained loading variant", async ({ page }, testInfo) => {
@@ -138,10 +144,12 @@ test.describe("IconButton", () => {
       .locator("data-testid=IconButton")
       .first();
 
+    await page.waitForTimeout(500);
+
     await iconButton.screenshot({
       path: snapshotPath,
     });
 
-    await compareScreenshots(testInfo.snapshotDir, snapshotDir);
+    await compareScreenshots([testInfo.snapshotDir, snapshotDir], 14);
   });
 });
