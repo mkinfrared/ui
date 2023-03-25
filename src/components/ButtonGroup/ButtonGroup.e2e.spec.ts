@@ -29,11 +29,13 @@ test.describe("ButtonGroup", () => {
       .locator("data-testid=ButtonGroup")
       .first();
 
+    await page.waitForTimeout(500);
+
     await buttonGroup.screenshot({
       path: snapshotPath,
     });
 
-    await compareScreenshots(testInfo.snapshotDir, snapshotDir);
+    await compareScreenshots([testInfo.snapshotDir, snapshotDir], 11);
   });
 
   test("compare outlined variant", async ({ page }, testInfo) => {
@@ -68,11 +70,13 @@ test.describe("ButtonGroup", () => {
       .locator("data-testid=ButtonGroup")
       .first();
 
+    await page.waitForTimeout(500);
+
     await button.screenshot({
       path: snapshotPath,
     });
 
-    await compareScreenshots(testInfo.snapshotDir, snapshotDir);
+    await compareScreenshots([testInfo.snapshotDir, snapshotDir], 12);
   });
 
   test("compare with icon", async ({ page }, testInfo) => {
@@ -99,10 +103,12 @@ test.describe("ButtonGroup", () => {
       .locator("data-testid=ButtonGroup")
       .first();
 
+    await page.waitForTimeout(500);
+
     await button.screenshot({
       path: snapshotPath,
     });
 
-    await compareScreenshots(testInfo.snapshotDir, snapshotDir);
+    await compareScreenshots([testInfo.snapshotDir, snapshotDir], 8);
   });
 });

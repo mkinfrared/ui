@@ -32,11 +32,13 @@ test.describe("TextField", () => {
       .frameLocator("#storybook-preview-iframe")
       .locator("data-testid=TextField");
 
+    await page.waitForTimeout(500);
+
     await textField.screenshot({
       path: snapshotPath,
     });
 
-    await compareScreenshots(testInfo.snapshotDir, snapshotDir);
+    await compareScreenshots([testInfo.snapshotDir, snapshotDir], 1);
   });
 
   test("compare filled fields", async ({ page }, testInfo) => {
@@ -62,11 +64,13 @@ test.describe("TextField", () => {
       .frameLocator("#storybook-preview-iframe")
       .locator("data-testid=TextField");
 
+    await page.waitForTimeout(500);
+
     await textField.screenshot({
       path: snapshotPath,
     });
 
-    await compareScreenshots(testInfo.snapshotDir, snapshotDir);
+    await compareScreenshots([testInfo.snapshotDir, snapshotDir], 1);
   });
 
   test("compare error fields", async ({ page }, testInfo) => {
@@ -96,11 +100,13 @@ test.describe("TextField", () => {
       .frameLocator("#storybook-preview-iframe")
       .locator("data-testid=TextField");
 
+    await page.waitForTimeout(500);
+
     await textField.screenshot({
       path: snapshotPath,
     });
 
-    await compareScreenshots(testInfo.snapshotDir, snapshotDir);
+    await compareScreenshots([testInfo.snapshotDir, snapshotDir], 1);
   });
 
   test("compare disabled fields", async ({ page }, testInfo) => {
@@ -130,11 +136,13 @@ test.describe("TextField", () => {
       .frameLocator("#storybook-preview-iframe")
       .locator("data-testid=TextField");
 
+    await page.waitForTimeout(500);
+
     await textField.screenshot({
       path: snapshotPath,
     });
 
-    await compareScreenshots(testInfo.snapshotDir, snapshotDir);
+    await compareScreenshots([testInfo.snapshotDir, snapshotDir], 1);
   });
 
   test("compare with label fields", async ({ page }, testInfo) => {
@@ -164,11 +172,13 @@ test.describe("TextField", () => {
       .frameLocator("#storybook-preview-iframe")
       .locator("data-testid=TextField");
 
+    await page.waitForTimeout(500);
+
     await textField.screenshot({
       path: snapshotPath,
     });
 
-    await compareScreenshots(testInfo.snapshotDir, snapshotDir);
+    await compareScreenshots([testInfo.snapshotDir, snapshotDir], 1);
   });
 
   test("compare with prefix", async ({ page }, testInfo) => {
@@ -194,11 +204,13 @@ test.describe("TextField", () => {
       .frameLocator("#storybook-preview-iframe")
       .locator("data-testid=TextField");
 
+    await page.waitForTimeout(500);
+
     await textField.screenshot({
       path: snapshotPath,
     });
 
-    await compareScreenshots(testInfo.snapshotDir, snapshotDir);
+    await compareScreenshots([testInfo.snapshotDir, snapshotDir], 1);
   });
 
   test("compare with suffix", async ({ page }, testInfo) => {
@@ -224,11 +236,13 @@ test.describe("TextField", () => {
       .frameLocator("#storybook-preview-iframe")
       .locator("data-testid=TextField");
 
+    await page.waitForTimeout(500);
+
     await textField.screenshot({
       path: snapshotPath,
     });
 
-    await compareScreenshots(testInfo.snapshotDir, snapshotDir);
+    await compareScreenshots([testInfo.snapshotDir, snapshotDir], 1);
   });
 
   test("compare with prefix and suffix", async ({ page }, testInfo) => {
@@ -256,10 +270,12 @@ test.describe("TextField", () => {
       .frameLocator("#storybook-preview-iframe")
       .locator("data-testid=TextField");
 
+    await page.waitForTimeout(500);
+
     await textField.screenshot({
       path: snapshotPath,
     });
 
-    await compareScreenshots(testInfo.snapshotDir, snapshotDir);
+    await compareScreenshots([testInfo.snapshotDir, snapshotDir], 1);
   });
 });

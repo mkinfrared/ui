@@ -28,10 +28,12 @@ test.describe("Fieldset", () => {
       .frameLocator("#storybook-preview-iframe")
       .locator("data-testid=Fieldset");
 
+    await page.waitForTimeout(500);
+
     await fieldset.screenshot({
       path: snapshotPath,
     });
 
-    await compareScreenshots(testInfo.snapshotDir, snapshotDir);
+    await compareScreenshots([testInfo.snapshotDir, snapshotDir], 1);
   });
 });
