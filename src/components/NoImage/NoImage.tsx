@@ -1,7 +1,8 @@
 import { memo } from "react";
 
-import { ReactComponent as Cross } from "icons/cross-circle.svg";
 import { classNames } from "utils";
+
+import { ReactComponent as Cross } from "../../icons/cross-circle.svg";
 
 import css from "./NoImage.module.scss";
 import { NoImageProps } from "./NoImage.type";

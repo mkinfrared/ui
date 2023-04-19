@@ -1,8 +1,9 @@
 import { memo } from "react";
 
 import Text from "components/Text";
-import { ReactComponent as Tick } from "icons/tick.svg";
 import { classNames, mergeRefs } from "utils";
+
+import { ReactComponent as Tick } from "../../icons/tick.svg";
 
 import css from "./Checkbox.module.scss";
 import { CheckboxProps } from "./Checkbox.type";

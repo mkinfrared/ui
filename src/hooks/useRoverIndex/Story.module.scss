@@ -1,12 +1,12 @@
 .Story {
   .list {
-    list-style: none;
     display: flex;
     flex-direction: row;
+    list-style: none;
   }
 
   .listItem {
-    width: 300px;
     height: 200px;
+    width: 300px;
   }
 }

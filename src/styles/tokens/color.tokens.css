@@ -50,10 +50,10 @@
   --aqua-splash: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
   --dusty-grass: linear-gradient(120deg, #d4fc79 0%, #96e6a1 100%);
   --frozen-dreams: linear-gradient(
-                  to top,
-                  #fdcbf1 0%,
-                  #fdcbf1 1%,
-                  #e6dee9 100%
+    to top,
+    #fdcbf1 0%,
+    #fdcbf1 1%,
+    #e6dee9 100%
   );
   --fruit-blend: linear-gradient(to right, #f9d423 0%, #ff4e50 100%);
   --grown-early: linear-gradient(to top, #0ba360 0%, #3cba92 100%);
@@ -76,23 +76,23 @@
   --royal-garden: linear-gradient(to right, #ed6ea0 0%, #ec8c69 100%);
   --smart-indigo: linear-gradient(to top, #b224ef 0%, #7579ff 100%);
   --snow-again: linear-gradient(
-                  to right,
-                  rgb(230 233 240 / 50%),
-                  rgb(238 241 245 / 50%)
+    to right,
+    rgb(230 233 240 / 50%),
+    rgb(238 241 245 / 50%)
   );
   --sugar-lollipop: linear-gradient(
-                  -225deg,
-                  #a445b2 0%,
-                  #d41872 52%,
-                  #ff0066 100%
+    -225deg,
+    #a445b2 0%,
+    #d41872 52%,
+    #ff0066 100%
   );
   --summer-games: linear-gradient(to right, #92fe9d 0%, #00c9ff 100%);
   --sunny-morning: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
   --supreme-sky: linear-gradient(
-                  -225deg,
-                  #d4ffec 0%,
-                  #57f2cc 48%,
-                  #4596fb 100%
+    -225deg,
+    #d4ffec 0%,
+    #57f2cc 48%,
+    #4596fb 100%
   );
   --tempting-azure: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
   --true-sunset: linear-gradient(to right, #fa709a 0%, #fee140 100%);
