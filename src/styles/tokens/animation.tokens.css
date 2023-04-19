@@ -116,7 +116,8 @@
   }
 }
 @keyframes shake-x {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateX(0%);
   }
   20% {
@@ -133,7 +134,8 @@
   }
 }
 @keyframes shake-y {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0%);
   }
   20% {
@@ -155,13 +157,15 @@
   }
 }
 @keyframes ping {
-  90%, 100% {
+  90%,
+  100% {
     opacity: 0;
     transform: scale(2);
   }
 }
 @keyframes blink {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 1;
   }
   50% {
@@ -180,7 +184,9 @@
   40% {
     transform: translateY(-3%);
   }
-  0%, 60%, 100% {
+  0%,
+  60%,
+  100% {
     transform: translateY(0);
   }
 }
