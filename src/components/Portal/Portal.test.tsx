@@ -1,7 +1,7 @@
 import { render } from "@testing-library/react";
 import { createRef } from "react";
 
-import { Portal } from "./Portal";
+import Portal from "./Portal";
 
 describe("<Portal />", () => {
   it("should be defined", () => {

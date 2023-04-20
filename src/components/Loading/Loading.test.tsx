@@ -1,7 +1,7 @@
 import { render } from "@testing-library/react";
 import { createRef } from "react";
 
-import { Loading } from "./Loading";
+import Loading from "./Loading";
 
 describe("<Loading />", () => {
   const element = createRef<HTMLDivElement>();

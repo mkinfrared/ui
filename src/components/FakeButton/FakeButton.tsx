@@ -46,6 +46,4 @@ const FakeButton = ({
   );
 };
 
-export { FakeButton };
-
 export default FakeButton;

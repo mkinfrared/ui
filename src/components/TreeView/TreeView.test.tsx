@@ -3,7 +3,7 @@ import userEvent from "@testing-library/user-event";
 
 import TreeNode from "components/TreeNode";
 
-import { TreeView } from "./TreeView";
+import TreeView from "./TreeView";
 
 const expandAllNodes = (rootNode: HTMLElement) => {
   while (true) {

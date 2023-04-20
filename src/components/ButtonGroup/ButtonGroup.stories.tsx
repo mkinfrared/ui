@@ -7,7 +7,7 @@ import IconButton from "components/IconButton";
 import { ReactComponent as Doc } from "icons/description.svg";
 import { ReactComponent as Eye } from "icons/visibility.svg";
 
-import { ButtonGroup } from "./ButtonGroup";
+import ButtonGroup from "./ButtonGroup";
 import { ButtonGroupProps } from "./ButtonGroup.type";
 import css from "./Story.module.scss";
 

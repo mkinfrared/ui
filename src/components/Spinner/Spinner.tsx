@@ -1,5 +1,3 @@
-import { memo } from "react";
-
 import { classNames } from "utils";
 
 import { ReactComponent as Audio } from "../../spinners/audio.svg";
@@ -66,6 +64,4 @@ const Spinner = ({ className, type = "rolling" }: SpinnerProps) => {
   }
 };
 
-export { Spinner };
-
-export default memo(Spinner);
+export default Spinner;

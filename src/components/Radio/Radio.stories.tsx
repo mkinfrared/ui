@@ -2,7 +2,7 @@ import { Meta, Story } from "@storybook/react";
 import { useState } from "react";
 import * as React from "react";
 
-import { Radio } from "./Radio";
+import Radio from "./Radio";
 import { RadioProps } from "./Radio.type";
 import css from "./Story.module.scss";
 

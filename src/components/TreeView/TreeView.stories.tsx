@@ -4,7 +4,7 @@ import { useState } from "react";
 import TreeNode from "components/TreeNode";
 
 import css from "./Story.module.scss";
-import { TreeView } from "./TreeView";
+import TreeView from "./TreeView";
 import { TreeViewProps } from "./TreeView.type";
 
 export default {

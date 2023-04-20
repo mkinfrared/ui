@@ -3,7 +3,7 @@ import { Meta, Story } from "@storybook/react";
 import { useState } from "react";
 import * as React from "react";
 
-import { Checkbox } from "./Checkbox";
+import Checkbox from "./Checkbox";
 import { CheckboxProps } from "./Checkbox.type";
 import css from "./Story.module.scss";
 

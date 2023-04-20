@@ -2,7 +2,7 @@
 import { act, render } from "@testing-library/react";
 import * as reactUse from "react-use";
 
-import { LazyImage } from "./LazyImage";
+import  LazyImage  from "./LazyImage";
 
 jest.mock("react-use");
 

@@ -1,4 +1,4 @@
-@use "../common" as c;
+@use "../common.scss" as c;
 
 @mixin button-border-radius {
   --border-radius: 4rem;

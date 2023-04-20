@@ -1,5 +1,4 @@
 /* eslint-disable react/button-has-type */
-import { memo } from "react";
 
 import Spinner from "components/Spinner";
 import { classNames } from "utils";
@@ -66,6 +65,4 @@ const Button = ({
   );
 };
 
-export { Button };
-
-export default memo(Button);
+export default Button;

@@ -3,7 +3,7 @@ import { useState } from "react";
 import * as React from "react";
 
 import css from "./Story.module.scss";
-import { Toggle } from "./Toggle";
+import Toggle from "./Toggle";
 import { ToggleProps } from "./Toggle.type";
 
 export default {

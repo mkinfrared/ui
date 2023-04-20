@@ -2,7 +2,7 @@ import { fireEvent, render } from "@testing-library/react";
 
 import TreeViewContext from "components/TreeView/TreeViewContext";
 
-import { TreeNode } from "./TreeNode";
+import TreeNode from "./TreeNode";
 
 describe("<TreeNode />", () => {
   const label = "Marklar";

@@ -1,4 +1,4 @@
-@use "../../styles/base/baseButton" as bb;
+@use "../../styles/base/baseButton.scss" as bb;
 
 .ButtonGroup {
   @include bb.button-border-radius;

@@ -3,10 +3,9 @@ import { createPortal } from "react-dom";
 
 import IconButton from "components/IconButton";
 import { useOutsideClick } from "hooks/useOutsideClick";
+import { ReactComponent as Close } from "icons/clear.svg";
 import { classNames } from "utils";
 import { isHtmlElement } from "utils/typeGuards";
-
-import { ReactComponent as Close } from "../../icons/clear.svg";
 
 import css from "./Modal.module.scss";
 import { ModalProps } from "./Modal.type";

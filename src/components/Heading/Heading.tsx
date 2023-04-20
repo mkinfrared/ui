@@ -1,5 +1,3 @@
-import { memo } from "react";
-
 import { classNames } from "utils";
 
 import css from "./Heading.module.scss";
@@ -70,6 +68,4 @@ const Heading = ({ className, children, id, variant = "h3" }: HeadingProps) => {
   }
 };
 
-export { Heading };
-
-export default memo(Heading);
+export default Heading;

@@ -4,7 +4,6 @@ import {
   ReactNode,
   cloneElement,
   isValidElement,
-  memo,
 } from "react";
 
 import { ButtonColors, ButtonProps, ButtonVariants } from "components/Button";
@@ -70,6 +69,4 @@ const ButtonGroup = ({
   );
 };
 
-export { ButtonGroup };
-
-export default memo(ButtonGroup);
+export default ButtonGroup;

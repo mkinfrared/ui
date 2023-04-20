@@ -2,7 +2,7 @@ import { Meta, Story } from "@storybook/react";
 
 import Text from "components/Text";
 
-import { Spinner } from "./Spinner";
+import Spinner from "./Spinner";
 import { SpinnerProps } from "./Spinner.type";
 import css from "./Story.module.scss";
 

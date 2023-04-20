@@ -5,9 +5,8 @@ import { CSSTransition } from "react-transition-group";
 import FakeButton from "components/FakeButton";
 import Heading from "components/Heading";
 import TreeViewContext from "components/TreeView/TreeViewContext";
+import { ReactComponent as Chevron } from "icons/chevron.svg";
 import { classNames } from "utils";
-
-import { ReactComponent as Chevron } from "../../icons/chevron.svg";
 
 import transition from "./transition.module.scss";
 import css from "./TreeNode.module.scss";
@@ -90,7 +89,5 @@ const TreeNode = ({ children, className, label, nodeId }: TreeNodeProps) => {
     </li>
   );
 };
-
-export { TreeNode };
 
 export default TreeNode;

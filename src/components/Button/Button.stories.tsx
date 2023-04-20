@@ -5,7 +5,7 @@ import Heading from "components/Heading";
 import { ReactComponent as Doc } from "icons/description.svg";
 import { ReactComponent as Eye } from "icons/visibility.svg";
 
-import { Button } from "./Button";
+import Button from "./Button";
 import { ButtonProps } from "./Button.type";
 import css from "./Story.module.scss";
 

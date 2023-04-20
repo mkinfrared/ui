@@ -2,7 +2,7 @@ import { render } from "@testing-library/react";
 
 import Button from "components/Button";
 
-import { ButtonGroup } from "./ButtonGroup";
+import ButtonGroup from "./ButtonGroup";
 
 jest.mock("components/Button");
 

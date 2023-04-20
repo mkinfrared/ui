@@ -1,6 +1,6 @@
 import { fireEvent, render } from "@testing-library/react";
 
-import { FakeButton } from "./FakeButton";
+import FakeButton from "./FakeButton";
 
 describe("<FakeButton />", () => {
   const onClick = jest.fn();

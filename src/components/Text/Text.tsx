@@ -1,5 +1,3 @@
-import { memo } from "react";
-
 import { classNames } from "utils";
 
 import css from "./Text.module.scss";
@@ -11,6 +9,4 @@ const Text = ({ children, className, id }: TextProps) => (
   </p>
 );
 
-export { Text };
-
-export default memo(Text);
+export default Text;

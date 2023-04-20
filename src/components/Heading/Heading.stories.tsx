@@ -1,6 +1,6 @@
 import { Meta, Story } from "@storybook/react";
 
-import { Heading } from "./Heading";
+import Heading from "./Heading";
 import { HeadingProps } from "./Heading.type";
 import css from "./Story.module.scss";
 

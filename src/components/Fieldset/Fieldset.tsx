@@ -1,5 +1,3 @@
-import { memo } from "react";
-
 import { classNames } from "utils";
 
 import css from "./Fieldset.module.scss";
@@ -21,6 +19,4 @@ const Fieldset = ({
   </fieldset>
 );
 
-export { Fieldset };
-
-export default memo(Fieldset);
+export default Fieldset;
