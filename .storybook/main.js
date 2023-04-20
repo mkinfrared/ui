@@ -1,3 +1,4 @@
+const { TsconfigPathsPlugin } = require("tsconfig-paths-webpack-plugin");
 const compileTokens = require("./compileTokens");
 
 process.env.DESIGN_TOKEN_GLOB = "**/*.tokens.{css,less,svg}";
@@ -30,5 +31,17 @@ module.exports = {
     builder: {
       name: "webpack5",
     },
+  },
+  webpackFinal: async (config) => {
+    if (!config.resolve) {
+      config.resolve = {};
+    }
+
+    config.resolve.plugins = [
+      ...(config.resolve.plugins || []),
+      new TsconfigPathsPlugin(),
+    ];
+
+    return config;
   },
 };

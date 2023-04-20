@@ -1,6 +1,6 @@
 import { render } from "@testing-library/react";
 
-import { NoImage } from "./NoImage";
+import NoImage from "./NoImage";
 
 describe("<NoImage />", () => {
   const Component = <NoImage />;

@@ -1,5 +1,3 @@
-import { memo } from "react";
-
 import Text from "components/Text";
 import { classNames, mergeRefs } from "utils";
 
@@ -56,6 +54,4 @@ const Toggle = ({
   );
 };
 
-export { Toggle };
-
-export default memo(Toggle);
+export default Toggle;

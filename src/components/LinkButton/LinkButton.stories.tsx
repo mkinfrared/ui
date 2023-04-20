@@ -4,7 +4,7 @@ import Heading from "components/Heading";
 import { ReactComponent as Doc } from "icons/description.svg";
 import { ReactComponent as Eye } from "icons/visibility.svg";
 
-import { LinkButton } from "./LinkButton";
+import LinkButton from "./LinkButton";
 import { LinkButtonProps } from "./LinkButton.type";
 import css from "./Story.module.scss";
 

@@ -8,7 +8,7 @@ import webp1x from "../../images/man-bear-pig-webp-1x.webp";
 import webp2x from "../../images/man-bear-pig-webp-2x.webp";
 import webp3x from "../../images/man-bear-pig-webp-3x.webp";
 
-import { LazyImage } from "./LazyImage";
+import LazyImage from "./LazyImage";
 import { LazyImageProps } from "./LazyImage.type";
 import css from "./Story.module.scss";
 

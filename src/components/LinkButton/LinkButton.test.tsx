@@ -1,6 +1,6 @@
 import { render } from "@testing-library/react";
 
-import { LinkButton } from "./LinkButton";
+import LinkButton from "./LinkButton";
 
 describe("<LinkButton />", () => {
   const Component = <LinkButton />;

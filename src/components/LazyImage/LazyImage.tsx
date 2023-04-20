@@ -1,10 +1,9 @@
-import { memo, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { useIntersection } from "react-use";
 
 import NoImage from "components/NoImage";
+import { ReactComponent as Skeleton } from "icons/skeleton.svg";
 import { classNames } from "utils";
-
-import { ReactComponent as Skeleton } from "../../icons/skeleton.svg";
 
 import css from "./LazyImage.module.scss";
 import { LazyImageProps } from "./LazyImage.type";
@@ -81,6 +80,4 @@ const LazyImage = ({
   );
 };
 
-export { LazyImage };
-
-export default memo(LazyImage);
+export default LazyImage;

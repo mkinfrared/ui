@@ -1,5 +1,5 @@
-@import "styles/reset";
-@import "styles/tokens/animation.tokens";
-@import "styles/tokens/color.tokens";
-@import "styles/tokens/easings.tokens";
-@import "styles/global";
+@import "./styles/reset.scss";
+@import "./styles/tokens/animation.tokens.scss";
+@import "./styles/tokens/color.tokens.scss";
+@import "./styles/tokens/easings.tokens.scss";
+@import "./styles/global.scss";

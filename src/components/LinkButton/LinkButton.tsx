@@ -1,5 +1,3 @@
-import { memo } from "react";
-
 import { ButtonColors, ButtonVariants } from "components/Button";
 import { classNames } from "utils";
 
@@ -42,6 +40,4 @@ const LinkButton = ({
   );
 };
 
-export { LinkButton };
-
-export default memo(LinkButton);
+export default LinkButton;

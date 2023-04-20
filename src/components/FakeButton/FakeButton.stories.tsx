@@ -4,7 +4,7 @@ import { Meta, Story } from "@storybook/react";
 
 import Text from "components/Text";
 
-import { FakeButton } from "./FakeButton";
+import FakeButton from "./FakeButton";
 import { FakeButtonProps } from "./FakeButton.type";
 import css from "./Story.module.scss";
 

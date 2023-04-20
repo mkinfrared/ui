@@ -1,4 +1,4 @@
-import { memo, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 
 import Spinner from "components/Spinner";
 import { classNames } from "utils";
@@ -36,6 +36,4 @@ const Loading = ({ className, type }: LoadingProps) => {
   );
 };
 
-export { Loading };
-
-export default memo(Loading);
+export default Loading;

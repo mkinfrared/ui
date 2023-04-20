@@ -1,5 +1,3 @@
-import { memo } from "react";
-
 import ControlledTree from "components/TreeView/ControlledTree";
 import UncontrolledTree from "components/TreeView/UncontrolledTree";
 
@@ -15,6 +13,4 @@ const TreeView = (props: TreeViewProps) => {
   return <UncontrolledTree {...props}>{children}</UncontrolledTree>;
 };
 
-export { TreeView };
-
-export default memo(TreeView);
+export default TreeView;

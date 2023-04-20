@@ -3,7 +3,7 @@ import { useRef } from "react";
 
 import Text from "components/Text";
 
-import { Loading } from "./Loading";
+import Loading from "./Loading";
 import { LoadingProps } from "./Loading.type";
 import css from "./Story.module.scss";
 

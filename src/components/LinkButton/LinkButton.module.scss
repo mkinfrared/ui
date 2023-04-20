@@ -1,4 +1,4 @@
-@use "../Button/Button.module";
+@use "../Button/Button.module.scss";
 
 .LinkButton {
   @extend %button;

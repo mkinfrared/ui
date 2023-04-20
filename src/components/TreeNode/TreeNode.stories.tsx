@@ -1,7 +1,7 @@
 import { Meta, Story } from "@storybook/react";
 
 import css from "./Story.module.scss";
-import { TreeNode } from "./TreeNode";
+import TreeNode from "./TreeNode";
 import { TreeNodeProps } from "./TreeNode.type";
 
 export default {

@@ -1,4 +1,4 @@
-import { memo, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 
 import { PortalProps } from "./Portal.type";
@@ -27,6 +27,4 @@ const Portal = ({ children, container, replaceHtml = true }: PortalProps) => {
   return createPortal(children, htmlElement);
 };
 
-export { Portal };
-
-export default memo(Portal);
+export default Portal;

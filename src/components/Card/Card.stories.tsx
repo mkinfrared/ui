@@ -3,7 +3,7 @@ import { Meta, Story } from "@storybook/react";
 import Text from "components/Text";
 import { classNames } from "utils";
 
-import { Card } from "./Card";
+import Card from "./Card";
 import { CardProps } from "./Card.type";
 import css from "./Story.module.scss";
 

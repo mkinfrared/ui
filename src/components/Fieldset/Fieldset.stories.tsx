@@ -4,7 +4,7 @@ import Checkbox from "components/Checkbox";
 import Radio from "components/Radio";
 import TextField from "components/TextField";
 
-import { Fieldset } from "./Fieldset";
+import Fieldset from "./Fieldset";
 import { FieldsetProps } from "./Fieldset.type";
 import css from "./Story.module.scss";
 

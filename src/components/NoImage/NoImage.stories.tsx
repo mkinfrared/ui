@@ -1,6 +1,6 @@
 import { Meta, Story } from "@storybook/react";
 
-import { NoImage } from "./NoImage";
+import NoImage from "./NoImage";
 import { NoImageProps } from "./NoImage.type";
 import css from "./Story.module.scss";
 

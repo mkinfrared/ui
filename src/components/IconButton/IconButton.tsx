@@ -1,6 +1,4 @@
 /* eslint-disable react/button-has-type */
-import { memo } from "react";
-
 import { ButtonColors, ButtonVariants } from "components/Button";
 import Spinner from "components/Spinner";
 import { classNames } from "utils";
@@ -62,4 +60,4 @@ const IconButton = ({
 
 export { IconButton };
 
-export default memo(IconButton);
+export default IconButton;

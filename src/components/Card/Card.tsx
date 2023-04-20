@@ -1,5 +1,3 @@
-import { memo } from "react";
-
 import { classNames } from "utils";
 
 import css from "./Card.module.scss";
@@ -11,6 +9,4 @@ const Card = ({ children, className }: CardProps) => (
   </div>
 );
 
-export { Card };
-
-export default memo(Card);
+export default Card;

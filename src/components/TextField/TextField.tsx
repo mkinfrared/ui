@@ -1,5 +1,3 @@
-import { memo } from "react";
-
 import FakeButton from "components/FakeButton";
 import Heading from "components/Heading";
 import Text from "components/Text";
@@ -65,6 +63,4 @@ const TextField = ({
   );
 };
 
-export { TextField };
-
-export default memo(TextField);
+export default TextField;

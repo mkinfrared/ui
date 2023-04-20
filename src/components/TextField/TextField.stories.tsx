@@ -6,7 +6,7 @@ import { ReactComponent as Doc } from "icons/description.svg";
 import { ReactComponent as Eye } from "icons/visibility.svg";
 
 import css from "./Story.module.scss";
-import { TextField } from "./TextField";
+import TextField from "./TextField";
 import { TextFieldProps } from "./TextField.type";
 
 export default {

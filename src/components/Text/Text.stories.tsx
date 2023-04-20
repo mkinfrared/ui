@@ -1,7 +1,7 @@
 import { Meta, Story } from "@storybook/react";
 
 import css from "./Story.module.scss";
-import { Text } from "./Text";
+import Text from "./Text";
 import { TextProps } from "./Text.type";
 
 export default {

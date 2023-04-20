@@ -1,5 +1,3 @@
-import { memo } from "react";
-
 import Text from "components/Text";
 import { classNames, mergeRefs } from "utils";
 
@@ -51,6 +49,4 @@ const Radio = ({
   );
 };
 
-export { Radio };
-
-export default memo(Radio);
+export default Radio;
