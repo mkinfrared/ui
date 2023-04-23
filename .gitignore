@@ -132,9 +132,7 @@ dist
 .stylelintcache
 bundle-analysis.html
 npm-debug.log*
-oidc-client.min.js
 yarn-error.log*
 yarn-debug.log*
-apps/IdentityService/Views/Shared/_Layout.cshtml
-packages/ui/src/styles/colors.css*
+src/styles/tokens/*.css
 storybook-static

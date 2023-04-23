@@ -104,10 +104,10 @@ const compareScreenshots = async (snapshotsPath: string[], maxDiff: number) => {
     { componentTestInfo: "", maxDiff: 0 },
   );
 
-  const infoLog = chalk.bgBlue;
+  const resultLog = chalk.whiteBright.bold.bgBlue;
 
   console.log(
-    infoLog(
+    resultLog(
       `${
         finalResult.componentTestInfo
       } max diff was: ${finalResult.maxDiff.toFixed(2)}%`,

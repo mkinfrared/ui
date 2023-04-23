@@ -83,6 +83,6 @@ fs.rm(outdir, { recursive: true }, (err) => {
   console.info(err);
 });
 
-exec(`tsc --declarationDir ${outdir}/types`);
+exec(`tsc --noEmit false --declarationDir ${outdir}/types`);
 
 build();
