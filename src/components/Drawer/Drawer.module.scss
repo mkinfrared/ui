@@ -1,0 +1,86 @@
+.Drawer {
+  --left: auto;
+  --right: auto;
+  --top: auto;
+  --bottom: auto;
+  --height: 0%;
+  --translate-x: 0;
+  --translate-y: 0;
+
+  inset: 0;
+  position: fixed;
+  transition: background-color 250ms var(--ease-3);
+
+  .content {
+    bottom: var(--bottom);
+    left: var(--left);
+    position: absolute;
+    right: var(--right);
+    top: var(--top);
+    transition: translate 250ms var(--ease-3);
+    translate: var(--translate-x) var(--translate-y);
+    width: 400px;
+  }
+
+  .left,
+  .right {
+    height: 100%;
+  }
+
+  .top,
+  .bottom {
+    max-height: 50%;
+    width: 100%;
+  }
+
+  .left {
+    --left: 0;
+
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+  }
+
+  .right {
+    --right: 0;
+
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+  }
+
+  .top {
+    --top: 0;
+
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+
+  .bottom {
+    --bottom: 0;
+
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  &[aria-hidden="true"] {
+    .left {
+      --translate-x: -100%;
+    }
+
+    .right {
+      --translate-x: 100%;
+    }
+
+    .top {
+      --translate-y: -100%;
+    }
+
+    .bottom {
+      --translate-y: 100%;
+    }
+  }
+
+  &[aria-hidden="false"] {
+    --translate-x: 0;
+    --translate-y: 0;
+  }
+}

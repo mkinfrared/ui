@@ -59,9 +59,13 @@ const Modal = ({ children, className, onClose, open }: ModalProps) => {
   }, [open]);
 
   return createPortal(
-    <div className={classNames(css.Modal, className)} data-testid="Modal">
+    <div className={css.Modal} data-testid="Modal">
       <div className={css.backdrop} />
-      <div className={css.dialog} ref={ref} role="dialog">
+      <div
+        className={classNames(css.dialog, className)}
+        ref={ref}
+        role="dialog"
+      >
         <IconButton
           buttonRef={buttonRef}
           className={css.close}

@@ -32,7 +32,7 @@ const useOutsideClick = (refs: Refs, callback: Callback): void => {
     return () => {
       window.removeEventListener("click", handleClick);
     };
-  }, []);
+  }, [callback]);
 };
 
 export { useOutsideClick };
