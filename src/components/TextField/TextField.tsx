@@ -1,3 +1,6 @@
+import { uniqueId } from "lodash-es";
+import { useMemo } from "react";
+
 import FakeButton from "components/FakeButton";
 import Heading from "components/Heading";
 import Text from "components/Text";
@@ -31,6 +34,7 @@ const TextField = ({
     disabled && css.disabled,
   ];
 
+  const errorId = useMemo(() => uniqueId("error"), []);
   const mergedRefs = mergeRefs(inputRef);
 
   return (
@@ -43,6 +47,8 @@ const TextField = ({
       <div className={css.input}>
         {prefix && <FakeButton className={css.prefix}>{prefix}</FakeButton>}
         <input
+          aria-invalid={!!error}
+          aria-errormessage={errorId}
           autoComplete={autoComplete}
           disabled={disabled}
           name={name}
@@ -58,7 +64,9 @@ const TextField = ({
           </FakeButton>
         )}
       </div>
-      <Text className={css.error}>{error}</Text>
+      <Text aria-live="polite" className={css.error} id={errorId}>
+        {error}
+      </Text>
     </label>
   );
 };

@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<MenuItem /> should match the snapshot 1`] = `
+<div>
+  <li
+    aria-selected="true"
+    class="MenuItem"
+    data-testid="MenuItem"
+    role="option"
+    tabindex="0"
+  >
+    Value 42
+  </li>
+  <li
+    class="MenuItem"
+    data-testid="MenuItem"
+    role="option"
+    tabindex="-1"
+  >
+    Value 43
+  </li>
+</div>
+`;

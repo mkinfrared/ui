@@ -7,6 +7,8 @@
   --line-height: 1.8;
   --text-height: calc(var(--text-size) * var(--line-height));
   --text-size: 1.6rem;
+  --scrollbar-color: hsl(0deg 0% 100% / 30%);
+  --scrollbar-thumb-color: hsl(0deg 0% 100% / 10%);
 }
 
 html {
@@ -14,7 +16,7 @@ html {
 }
 
 * {
-  scrollbar-color: hsl(0deg 0% 100% / 30%) hsl(0deg 0% 100% / 10%);
+  scrollbar-color: var(--scrollbar-color) var(--scrollbar-thumb-color);
 
   // the width of the scrollbar will depend on the platform
   // on window 10 the width is approximately 8-10px
@@ -23,17 +25,22 @@ html {
   scrollbar-width: thin; // width is ~8-10px on windows 10
 
   &::-webkit-scrollbar {
-    background-color: hsl(0deg 0% 100% / 10%);
+    background-color: var(--scrollbar-color);
     width: 8px;
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: hsl(0deg 0% 100% / 30%);
+    background-color: var(--scrollbar-thumb-color);
   }
 }
 
 body {
   color: var(--white);
+
+  &[data-theme="light"] {
+    --scrollbar-color: hsl(0deg 0% 0% / 20%);
+    --scrollbar-thumb-color: hsl(0deg 0% 0% / 100%);
+  }
 }
 
 a {

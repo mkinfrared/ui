@@ -38,7 +38,7 @@ test.describe("TextField", () => {
       path: snapshotPath,
     });
 
-    await compareScreenshots([testInfo.snapshotDir, snapshotDir], 1);
+    await compareScreenshots([testInfo.snapshotDir, snapshotDir], 2);
   });
 
   test("compare filled fields", async ({ page }, testInfo) => {

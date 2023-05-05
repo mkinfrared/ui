@@ -4,6 +4,8 @@ import { useTheme } from "../src/hooks/useTheme";
 
 import "./styles/story.scss";
 
+import cssHasPseudo from "css-has-pseudo/browser";
+
 const tokenContext = require.context(
   "!!raw-loader!../src",
   true,
@@ -41,6 +43,10 @@ const getTheme = (backgroundColor) => {
 export const decorators = [
   (Story, context) => {
     const { setPreferredTheme } = useTheme("app-story-theme");
+
+    useEffect(() => {
+      cssHasPseudo(document);
+    }, []);
 
     useEffect(() => {
       const { backgrounds } = context.globals;
