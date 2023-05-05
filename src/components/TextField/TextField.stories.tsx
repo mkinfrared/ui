@@ -31,6 +31,7 @@ const ControlledTemplate: Story<TextFieldProps> = () => {
         <TextField
           value={value}
           onChange={(event) => setValue(event.target.value)}
+          error={value === "error" ? "You entered wrong email" : undefined}
         />
       </div>
     </div>
@@ -76,8 +77,7 @@ Uncontrolled.args = {
 WithError.args = {
   value: "marklar",
   onChange: action("change"),
-  error:
-    "Lorem ipsum dolor sit amet, consectetur adipisicing elit. asdf sadfl kjasdf agj asldfkj asdfjlk",
+  error: "You entered a wrong email",
 };
 
 WithPrefix.args = {

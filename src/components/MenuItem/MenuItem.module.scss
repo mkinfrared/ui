@@ -1,0 +1,22 @@
+@use "../../styles/common.scss" as v;
+
+.MenuItem {
+  background-color: var(--background);
+  cursor: pointer;
+  font-size: 1.6rem;
+  list-style: none;
+  padding: 1rem 1.6rem;
+  transition: background-color 250ms var(--ease-4);
+
+  &[aria-selected="true"] {
+    --background: var(--purple-gradient);
+  }
+
+  &:hover {
+    --background: var(--purple-light);
+  }
+
+  &:focus-visible {
+    @include v.focus-visible;
+  }
+}

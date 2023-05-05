@@ -1,3 +1,5 @@
+@import "../../styles/common.scss";
+
 .Drawer {
   --left: auto;
   --right: auto;
@@ -6,12 +8,13 @@
   --height: 0%;
   --translate-x: 0;
   --translate-y: 0;
+  --background: var(--black);
 
   inset: 0;
   position: fixed;
-  transition: background-color 250ms var(--ease-3);
 
   .content {
+    background-color: var(--background);
     bottom: var(--bottom);
     left: var(--left);
     position: absolute;
@@ -20,6 +23,16 @@
     transition: translate 250ms var(--ease-3);
     translate: var(--translate-x) var(--translate-y);
     width: 400px;
+
+    :where(&) {
+      @include theme("dark") {
+        --background: var(--black-light);
+      }
+
+      @include theme("light") {
+        --background: var(--white);
+      }
+    }
   }
 
   .left,

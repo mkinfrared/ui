@@ -1,6 +1,11 @@
-/* eslint-disable */
-import { fireEvent, render, waitFor } from "@testing-library/react";
-import { act, renderHook } from "@testing-library/react-hooks";
+/* eslint-disable react/no-array-index-key,react/button-has-type */
+import {
+  act,
+  fireEvent,
+  render,
+  renderHook,
+  waitFor,
+} from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { useState } from "react";
 
@@ -243,8 +248,6 @@ describe("useRoverIndex", () => {
     const add = getByTestId("add");
     const remove = getByTestId("remove");
 
-    console.log("MUTATION OBSERVER", typeof MutationObserver);
-
     act(() => {
       fireEvent.click(add);
     });
@@ -253,6 +256,7 @@ describe("useRoverIndex", () => {
       for (const child of ul.children) {
         expect(child).toHaveAttribute("tabindex");
       }
+
       // focus first element before handling the key events
       await userEvent.tab();
 

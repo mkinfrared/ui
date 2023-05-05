@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Select /> should match the snapshot 1`] = `
+<div>
+  <label
+    class="Select"
+    data-testid="Select"
+  >
+    <div
+      aria-controls="listbox1"
+      aria-expanded="false"
+      class="container"
+      role="combobox"
+      tabindex="0"
+    >
+      <input
+        type="text"
+        value="marklar undefined"
+      />
+      <div
+        class="suffix"
+      >
+        <svg
+          class="arrow"
+        >
+          chevron.svg
+        </svg>
+      </div>
+    </div>
+    <div
+      class="errorContainer"
+    >
+      <p
+        class="Text error"
+        data-testid="Text"
+      />
+    </div>
+  </label>
+</div>
+`;

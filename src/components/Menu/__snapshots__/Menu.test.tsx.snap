@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Menu /> should match the snapshot 1`] = `
+<ul
+  class="Menu"
+  data-testid="Menu"
+  id="marklar"
+  role="listbox"
+>
+  <li>
+    Item-1
+  </li>
+  <li>
+    Item-2
+  </li>
+  <li>
+    Item-3
+  </li>
+  <li>
+    Item-4
+  </li>
+  <li>
+    Item-5
+  </li>
+</ul>
+`;
