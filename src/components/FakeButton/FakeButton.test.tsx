@@ -37,12 +37,13 @@ describe("<FakeButton />", () => {
     expect(onClick).toHaveBeenCalledTimes(2);
   });
 
-  it("should not call onClick passed from props if pressed button is not 'Enter'", () => {
+  it("should not call 'onClick' from props if pressed button is not 'Enter'", () => {
     const { getByTestId } = render(Component);
     const enterCode = 69;
     const fakeButton = getByTestId("FakeButton");
 
-    fireEvent.keyPress(fakeButton, {
+    fireEvent.keyDown(fakeButton, {
+      key: "A",
       charCode: enterCode,
       target: fakeButton,
     });

@@ -15,7 +15,14 @@ describe("<Checkbox />", () => {
     expect(container).toMatchSnapshot();
   });
 
-  it("should render a Text component when label is truthy", () => {
+  it("should contain a data test id", () => {
+    const { getByTestId } = render(Component);
+    const element = getByTestId("Checkbox");
+
+    expect(element).toBeDefined();
+  });
+
+  it("should render a Text component when 'label' is truthy", () => {
     const label = "marklar";
     const { getByTestId } = render(<Checkbox label={label} />);
     const labelText = getByTestId("Text");
@@ -23,10 +30,11 @@ describe("<Checkbox />", () => {
     expect(labelText).toBeDefined();
   });
 
-  it("should add an error class to label", () => {
-    const { getByTestId } = render(<Checkbox error />);
-    const label = getByTestId("Checkbox");
+  it("should add a readOnly class when 'readOnly' is true", () => {
+    const readOnly = true;
+    const { getByTestId } = render(<Checkbox readOnly={readOnly} />);
+    const element = getByTestId("Checkbox");
 
-    expect(label.classList).toContain("error");
+    expect(element.classList).toContain("readOnly");
   });
 });

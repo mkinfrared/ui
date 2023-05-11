@@ -25,16 +25,12 @@ const Checkbox = ({
 
   return (
     <label
-      className={classNames(
-        css.Checkbox,
-        error && css.error,
-        readOnly && css.readOnly,
-        className,
-      )}
+      className={classNames(css.Checkbox, readOnly && css.readOnly, className)}
       data-testid="Checkbox"
     >
       <input
-        className={classNames(css.input)}
+        aria-invalid={!!error}
+        className={css.input}
         checked={checked}
         defaultChecked={defaultChecked}
         disabled={disabled}

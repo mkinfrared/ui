@@ -22,7 +22,7 @@ describe("<Radio />", () => {
     expect(element).toBeDefined();
   });
 
-  it("should render <Text /> when label is truthy", () => {
+  it("should render <Text /> when 'label' is truthy", () => {
     const label = "markar";
     const { getByTestId } = render(<Radio label={label} />);
     const text = getByTestId("Text");
@@ -35,5 +35,12 @@ describe("<Radio />", () => {
     const label = getByTestId("Radio");
 
     expect(label.classList).toContain("error");
+  });
+
+  it("should add a readOnly class to label when readOnly is true", () => {
+    const { getByTestId } = render(<Radio readOnly />);
+    const label = getByTestId("Radio");
+
+    expect(label.classList).toContain("readOnly");
   });
 });

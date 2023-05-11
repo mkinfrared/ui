@@ -15,14 +15,21 @@ describe("<TextField />", () => {
     expect(container).toMatchSnapshot();
   });
 
-  it("should not have Heading when label is not defined", () => {
+  it("should contain a data test id", () => {
+    const { getByTestId } = render(Component);
+    const element = getByTestId("TextField");
+
+    expect(element).not.toBeNull();
+  });
+
+  it("should not have Heading when 'label' is not defined", () => {
     const { queryByTestId } = render(Component);
     const heading = queryByTestId("Heading");
 
     expect(heading).not.toBeInTheDocument();
   });
 
-  it("should have Heading when label is a truthy string", () => {
+  it("should render Heading when 'label' is a truthy string", () => {
     const label = "Marklar";
     const { queryByTestId } = render(<TextField label={label} />);
     const heading = queryByTestId("Heading");
@@ -32,43 +39,21 @@ describe("<TextField />", () => {
     expect(heading).toHaveTextContent(label);
   });
 
-  it("should have a hasError class name when error is a truthy string", () => {
-    const error = "Marklar";
-    const { getByTestId } = render(<TextField error={error} />);
-    const textField = getByTestId("TextField");
+  it("should render prefix when 'prefix' is a truthy value", () => {
+    const prefix = <div>foo</div>;
+    const { getByTestId } = render(<TextField prefix={prefix} />);
+    const element = getByTestId("TextField");
+    const prefixElement = element.querySelector(".prefix");
 
-    expect(textField.classList).toContain("hasError");
+    expect(prefixElement).not.toBeNull();
   });
 
-  it("should have a hasPrefix class name when prefix is defined", () => {
-    const testId = "prefix";
-    const prefix = <div data-testid={testId}>Marklar</div>;
+  it("should render suffix when 'suffix' is a truthy value", () => {
+    const suffix = <div>foo</div>;
+    const { getByTestId } = render(<TextField suffix={suffix} />);
+    const element = getByTestId("TextField");
+    const suffixElement = element.querySelector(".suffix");
 
-    const { getByTestId, queryByTestId } = render(
-      <TextField prefix={prefix} />,
-    );
-
-    const textField = getByTestId("TextField");
-    const prefixElement = queryByTestId(testId);
-
-    expect(textField.classList).toContain("hasPrefix");
-
-    expect(prefixElement).toBeInTheDocument();
-  });
-
-  it("should have a hasSuffix class name when suffix is defined", () => {
-    const testId = "suffix";
-    const suffix = <div data-testid={testId}>Marklar</div>;
-
-    const { getByTestId, queryByTestId } = render(
-      <TextField suffix={suffix} />,
-    );
-
-    const textField = getByTestId("TextField");
-    const prefixElement = queryByTestId(testId);
-
-    expect(textField.classList).toContain("hasSuffix");
-
-    expect(prefixElement).toBeInTheDocument();
+    expect(suffixElement).not.toBeNull();
   });
 });

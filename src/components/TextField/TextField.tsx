@@ -3,6 +3,7 @@ import { useMemo } from "react";
 
 import FakeButton from "components/FakeButton";
 import Heading from "components/Heading";
+import Input from "components/Input";
 import Text from "components/Text";
 import { classNames, mergeRefs } from "utils";
 
@@ -25,40 +26,34 @@ const TextField = ({
   suffix,
   value,
 }: TextFieldProps) => {
-  const classes = [
-    css.TextField,
-    className,
-    !!error && css.hasError,
-    !!prefix && css.hasPrefix,
-    !!suffix && css.hasSuffix,
-    disabled && css.disabled,
-  ];
-
   const errorId = useMemo(() => uniqueId("error"), []);
   const mergedRefs = mergeRefs(inputRef);
 
   return (
-    <label className={classNames(...classes)} data-testid="TextField">
-      {label && (
+    <label
+      className={classNames(css.TextField, className)}
+      data-testid="TextField"
+    >
+      {!!label && (
         <Heading variant="h5" className={css.label}>
           {label}
         </Heading>
       )}
       <div className={css.input}>
-        {prefix && <FakeButton className={css.prefix}>{prefix}</FakeButton>}
-        <input
+        {!!prefix && <FakeButton className={css.prefix}>{prefix}</FakeButton>}
+        <Input
           aria-invalid={!!error}
           aria-errormessage={errorId}
           autoComplete={autoComplete}
           disabled={disabled}
+          inputRef={mergedRefs}
           name={name}
           onBlur={onBlur}
           onChange={onChange}
-          ref={mergedRefs}
           type={type}
           value={value}
         />
-        {suffix && (
+        {!!suffix && (
           <FakeButton className={css.suffix} onClick={onSuffixClick}>
             {suffix}
           </FakeButton>

@@ -4,10 +4,37 @@
   --color: var(--toggle-text-color, var(--white));
   --padding: 0.2rem;
   --size: var(--text-height);
+  --switch-background: var(--secondary-gradient);
+  --text-color: inherit;
 
   align-items: center;
   display: flex;
   width: fit-content;
+
+  &:has(input:checked) {
+    --switch-background: var(--primary-gradient);
+
+    .ball {
+      transform: translateX(100%);
+    }
+  }
+
+  &:has(input[aria-invalid="true"]) {
+    --switch-background: var(--error-gradient);
+    --text-color: var(--error);
+  }
+
+  &:has(input:focus) {
+    .container {
+      border-radius: 0.4rem;
+    }
+  }
+
+  &:has(input:focus-visible) {
+    .container {
+      @include focus-visible;
+    }
+  }
 
   .container {
     align-items: center;
@@ -15,19 +42,9 @@
     display: flex;
   }
 
-  &.error {
-    .switch {
-      background: var(--error-gradient);
-    }
-
-    .text {
-      color: var(--error);
-    }
-  }
-
   .switch {
     align-items: center;
-    background: var(--secondary-gradient);
+    background: var(--switch-background);
     border-radius: 5rem;
     display: flex;
     height: var(--size);
@@ -47,6 +64,7 @@
   }
 
   .text {
+    color: var(--text-color);
     margin-left: 1rem;
   }
 
@@ -57,36 +75,18 @@
     position: absolute;
     width: 0;
     z-index: -1;
-
-    &:checked + .container .switch {
-      background: var(--primary-gradient);
-    }
-
-    &:checked + .container .switch .ball {
-      transform: translateX(100%);
-    }
-
-    &:focus ~ .container {
-      border-radius: 0.4rem;
-    }
-  }
-
-  input:focus-visible ~ .container {
-    @include focus-visible;
   }
 
   &.readOnly {
     pointer-events: none;
   }
 
-  &.readOnly .input,
-  .input:disabled {
-    ~ .container {
-      @include disabled;
+  &.readOnly,
+  &:has(input:disabled) {
+    --text-color: var(--grey);
 
-      .text {
-        color: var(--grey);
-      }
+    .container {
+      @include disabled;
     }
   }
 }

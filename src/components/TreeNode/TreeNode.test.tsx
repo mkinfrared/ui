@@ -71,4 +71,13 @@ describe("<TreeNode />", () => {
 
     expect(onNodeClick).toHaveBeenCalledWith(nodeId);
   });
+
+  it("should not call 'onNodeClick' from context on any key press except for 'Space'", () => {
+    const { getByTestId } = render(Component);
+    const element = getByTestId("TreeNode");
+
+    fireEvent.keyDown(element, { key: "S" });
+
+    expect(onNodeClick).toHaveBeenCalledTimes(0);
+  });
 });
