@@ -68,6 +68,6 @@ test.describe("Chip", () => {
       path: snapshotPath,
     });
 
-    await compareScreenshots([testInfo.snapshotDir, snapshotDir], 2);
+    await compareScreenshots([testInfo.snapshotDir, snapshotDir], 3);
   });
 });

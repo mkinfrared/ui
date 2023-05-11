@@ -4,23 +4,17 @@
   --border-radius: 0.5rem;
   --transition-time: 150ms;
   --border-width: 0.5rem;
+  --pseudo-background: var(--primary-gradient);
+  --text-color: inherit;
 
   align-items: center;
   cursor: pointer;
   display: flex;
   width: fit-content;
 
-  &.error {
-    .checkmark {
-      &::before,
-      &::after {
-        background: var(--error-gradient);
-      }
-    }
-
-    .text {
-      color: var(--error);
-    }
+  &:has(input[aria-invalid="true"]) {
+    --pseudo-background: var(--error-gradient);
+    --text-color: var(--error);
   }
 
   .container {
@@ -38,34 +32,38 @@
     z-index: -1;
   }
 
-  .input:checked ~ .container .checkmark {
-    &::before {
-      opacity: 0;
-      transition-delay: var(--transition-time);
-    }
+  &:has(input:checked) {
+    .checkmark {
+      &::before {
+        opacity: 0;
+        transition-delay: var(--transition-time);
+      }
 
-    &::after {
-      border-radius: var(--border-radius);
-      opacity: 1;
-      transform: scale(1);
-    }
+      &::after {
+        border-radius: var(--border-radius);
+        opacity: 1;
+        transform: scale(1);
+      }
 
-    .tick {
-      opacity: 1;
+      .tick {
+        opacity: 1;
+      }
     }
   }
 
-  .input:focus-visible ~ .container {
-    @include focus-visible;
+  &:has(input:focus-visible) {
+    .container {
+      @include focus-visible;
+    }
   }
 
   &.readOnly {
     pointer-events: none;
   }
 
-  &.readOnly .input,
-  .input:disabled {
-    ~ .container {
+  &.readOnly,
+  &:has(:is(input:disabled)) {
+    .container {
       @include disabled;
 
       .text {
@@ -75,6 +73,7 @@
   }
 
   .text {
+    color: var(--text-color);
     margin-left: 1rem;
   }
 
@@ -93,7 +92,7 @@
 
     &::before,
     &::after {
-      background-image: var(--primary-gradient);
+      background-image: var(--pseudo-background);
       content: "";
       inset: 0;
       padding: 0.3rem;

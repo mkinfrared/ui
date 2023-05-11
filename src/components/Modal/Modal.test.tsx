@@ -36,7 +36,25 @@ describe("<Modal />", () => {
     expect(onClose).toHaveBeenCalledTimes(1);
   });
 
+  it("should not invoke 'onClose' when any other button is pressed except for 'Escape' key", () => {
+    const { getByTestId } = render(Component);
+    const element = getByTestId("Modal");
+
+    fireEvent.keyDown(element!, { key: "A" });
+
+    expect(onClose).toHaveBeenCalledTimes(0);
+  });
+
   it("should call 'onClose' from props on close icon click", () => {
+    const { getByTestId } = render(Component);
+    const closeButton = getByTestId("IconButton");
+
+    fireEvent.click(closeButton!, { key: "Escape" });
+
+    expect(onClose).toHaveBeenCalledTimes(1);
+  });
+
+  it("should call 'onClose' from props on outside click", () => {
     const { getByTestId } = render(Component);
     const closeButton = getByTestId("IconButton");
 

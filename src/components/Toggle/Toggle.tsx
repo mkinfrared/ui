@@ -24,15 +24,11 @@ const Toggle = ({
 
   return (
     <label
-      className={classNames(
-        css.Toggle,
-        error && css.error,
-        readOnly && css.readOnly,
-        className,
-      )}
+      className={classNames(css.Toggle, readOnly && css.readOnly, className)}
       data-testid="Toggle"
     >
       <input
+        aria-invalid={!!error}
         className={css.input}
         checked={checked}
         defaultChecked={defaultChecked}

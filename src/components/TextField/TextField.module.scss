@@ -1,6 +1,7 @@
 @import "../../styles/common.scss";
 
 .TextField {
+  --background: var(--black-light);
   --border-color: transparent;
   --label-color: var(--black);
   --input-color: var(--black);
@@ -13,24 +14,18 @@
   display: block;
   width: 100%;
 
-  &:has([aria-invalid="true"]) {
-    --border-color: var(--error);
-
-    .input {
-      // todo replace with relative colors
-      // when browsers start to support it
-      box-shadow: 0 0 0.5rem 0 var(--error);
+  :where(&) {
+    @include theme("dark") {
+      --background: var(--black-light);
+      --border-color: var(--grey-light);
+      --input-color: var(--white);
     }
 
-    .error {
-      visibility: visible;
+    @include theme("light") {
+      --background: var(--white);
+      --border-color: var(--grey-dark);
+      --input-color: var(--black);
     }
-  }
-
-  &:has(input:disabled) {
-    --border-color: var(--grey);
-    --label-color: var(--grey);
-    --input-color: var(--grey);
   }
 
   &:has(.suffix) {
@@ -41,6 +36,26 @@
     --input-padding-left: 4rem;
   }
 
+  &:has(input:disabled) {
+    --border-color: var(--grey);
+    --label-color: var(--grey);
+    --input-color: var(--grey);
+  }
+
+  &:has(input[aria-invalid="true"]) {
+    --border-color: var(--error);
+
+    .input {
+      // todo replace with relative colors
+      // when browsers start to support it
+      // box-shadow: 0 0 0.5rem 0 var(--error);
+    }
+
+    .error {
+      visibility: visible;
+    }
+  }
+
   .label {
     cursor: pointer;
     margin-bottom: 1rem;
@@ -48,6 +63,7 @@
   }
 
   .input {
+    background-color: var(--background);
     border: 1px solid;
     border-color: var(--border-color);
     border-radius: 1rem;
@@ -59,18 +75,6 @@
     overflow: hidden;
     position: relative;
     width: 100%;
-
-    :where(&) {
-      @include theme("dark") {
-        @include dark;
-
-        --input-color: var(--white);
-      }
-
-      @include theme("light") {
-        @include light;
-      }
-    }
 
     input {
       background-color: transparent;

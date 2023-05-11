@@ -43,6 +43,42 @@ describe("<Select />", () => {
     expect(element).toBeDefined();
   });
 
+  it("should render Heading if 'label' is truthy", () => {
+    const { getByTestId } = render(
+      <Select
+        label="Marklar"
+        getActiveOption={getActiveOption}
+        getOptionLabel={getOptionLabel}
+        onChange={onChange}
+        options={[]}
+      />,
+    );
+
+    const element = getByTestId("Select");
+    const heading = element.querySelector(".label");
+
+    expect(heading).not.toBeNull();
+  });
+
+  it("should render prefix if 'prefix' is truthy", () => {
+    const prefix = <div>Marklar</div>;
+
+    const { getByTestId } = render(
+      <Select
+        prefix={prefix}
+        getActiveOption={getActiveOption}
+        getOptionLabel={getOptionLabel}
+        onChange={onChange}
+        options={[]}
+      />,
+    );
+
+    const element = getByTestId("Select");
+    const prefixElement = element.querySelector(".prefix");
+
+    expect(prefixElement).not.toBeNull();
+  });
+
   it("should open listbox on 'ArrowDown' key press", async () => {
     const { queryByTestId, getByRole } = render(Component);
     const combobox = getByRole("combobox");

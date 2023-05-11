@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TextArea /> should match the snapshot 1`] = `
+<div>
+  <label
+    class="TextArea"
+    data-testid="TextArea"
+  >
+    <textarea
+      aria-errormessage="error1"
+      aria-invalid="false"
+      class="textArea"
+      data-testid="TextAreaInput"
+      rows="4"
+    />
+    <p
+      aria-live="polite"
+      class="Text error"
+      data-testid="Text"
+      id="error1"
+    />
+  </label>
+</div>
+`;

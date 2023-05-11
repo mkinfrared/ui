@@ -23,10 +23,10 @@ describe("<Toggle />", () => {
     expect(labelText).toBeDefined();
   });
 
-  it("should add an error class to label", () => {
-    const { getByTestId } = render(<Toggle error />);
+  it("should add a readOnly class to label when 'readOnly' is true", () => {
+    const { getByTestId } = render(<Toggle readOnly />);
     const label = getByTestId("Toggle");
 
-    expect(label.classList).toContain("error");
+    expect(label.classList).toContain("readOnly");
   });
 });
