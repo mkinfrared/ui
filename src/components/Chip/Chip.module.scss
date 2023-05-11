@@ -1,0 +1,43 @@
+@import "../../styles/common.scss";
+
+.Chip {
+  --background: var(--black-light);
+  --border-color: var(--grey-dark);
+  --delete-color: var(--primary);
+  --icon-color: var(--secondary);
+
+  align-items: center;
+  background-color: var(--background);
+  border: 1px solid;
+  border-color: var(--border-color);
+  border-radius: 1.8rem;
+  cursor: pointer;
+  display: inline-flex;
+  font-size: 1.4rem;
+  gap: 0.6rem;
+  padding: 0.2rem 1rem;
+  white-space: nowrap;
+  width: fit-content;
+
+  @include theme("light") {
+    --background: var(--white-dark);
+    --border-color: var(--grey-light);
+  }
+
+  .cancel {
+    height: 1.6rem;
+
+    svg {
+      height: 100%;
+    }
+
+    path:last-child {
+      fill: var(--icon-color);
+      transition: fill 250ms var(--ease-1);
+    }
+
+    &:hover {
+      --icon-color: var(--secondary-light);
+    }
+  }
+}

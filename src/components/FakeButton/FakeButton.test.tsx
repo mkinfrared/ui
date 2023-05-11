@@ -3,8 +3,9 @@ import { fireEvent, render } from "@testing-library/react";
 import FakeButton from "./FakeButton";
 
 describe("<FakeButton />", () => {
+  const autofocus = true;
   const onClick = jest.fn();
-  const Component = <FakeButton onClick={onClick} />;
+  const Component = <FakeButton autoFocus={autofocus} onClick={onClick} />;
 
   it("should be defined", () => {
     expect(FakeButton).toBeDefined();
@@ -47,5 +48,12 @@ describe("<FakeButton />", () => {
     });
 
     expect(onClick).not.toHaveBeenCalled();
+  });
+
+  it("should set a data-testid passed from props", () => {
+    const { getByTestId } = render(<FakeButton data-testid="Foobar" />);
+    const fakeButton = getByTestId("Foobar");
+
+    expect(fakeButton).not.toBeNull();
   });
 });
