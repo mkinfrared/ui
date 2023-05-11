@@ -11,6 +11,7 @@ const FakeButton = ({
   children,
   onClick,
   tabIndex = 0,
+  ...rest
 }: FakeButtonProps) => {
   const ref = useRef<HTMLDivElement>(null);
 
@@ -39,7 +40,7 @@ const FakeButton = ({
       onKeyDown={handleKeyDown}
       role="button"
       tabIndex={tabIndex}
-      data-testid="FakeButton"
+      data-testid={rest["data-testid"] ?? "FakeButton"}
     >
       {children}
     </div>
